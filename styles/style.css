@@ -1,0 +1,21 @@
+.calculator{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: gainsboro;
+}
+.nums{
+    display:flex;
+    flex-direction: column;
+    gap:25px;
+    margin-right: 25px;
+}
+
+.btn{
+    width:50px;
+}
+.num-column{
+    display: flex;
+    flex-direction: row;
+}
