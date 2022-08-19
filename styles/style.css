@@ -14,8 +14,13 @@
 
 .btn{
     width:50px;
+    height: 35px;
 }
 .num-column{
     display: flex;
     flex-direction: row;
+}
+.board{
+    background-color: blanchedalmond;
+    padding:15px;
 }
