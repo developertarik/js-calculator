@@ -23,5 +23,17 @@ function divide(a,b){
 }
 //operate
 function operate(operation,num1,num2){
-    
+    if(operation ==="add"){
+        return sum(num1,num2);
+    }
+    if(operation == "multiply"){
+        return multiply(num1,num2);
+    }
+    if(operation=="divide"){
+        return divide(num1,num2);
+    }
+    if(operation =="subtract"){
+        return subtract(num1,num2)
+    }
 }
+operate();
