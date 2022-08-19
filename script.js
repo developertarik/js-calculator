@@ -22,6 +22,6 @@ function divide(a,b){
     return a/b;
 }
 //operate
-function operate(num1,num2) {
+function operate(operation,num1,num2){
     
 }
