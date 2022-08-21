@@ -50,7 +50,9 @@ function clickedButton() {
     const analog = document.querySelector(".analog")
     let nums = document.querySelector(".nums")
     buttons.addEventListener("click",({target})=>{
-        analog.textContent = target.innerText;
+        const value  = analog.textContent = target.innerText;
+        console.log(value)
+
     })
 }
 clickedButton();
