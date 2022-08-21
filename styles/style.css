@@ -4,6 +4,7 @@
     align-items: center;
     flex-direction: column;
     background-color: gainsboro;
+    padding:25px;
 }
 .nums{
     display:flex;
@@ -22,5 +23,13 @@
 }
 .board{
     background-color: blanchedalmond;
-    padding:15px;
+    padding: 45px;
+}
+.analog{
+   background-color: white;
+}
+.anotherButtons{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
