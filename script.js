@@ -44,12 +44,13 @@ operate();
 // bu kadar basit
 function clickedButton() {
     //önce divi doma ekle
-    const calculator = document.getElementsByClassName("calculator")[0];
+    //const calculator = document.getElementsByClassName("calculator")[0];
+    const buttons = document.getElementsByClassName("buttons")[0]
     const board = document.querySelector(".board");
     const analog = document.querySelector(".analog")
     let nums = document.querySelector(".nums")
-    calculator.addEventListener("click",()=>{
-        analog.textContent = nums;
+    buttons.addEventListener("click",({target})=>{
+        analog.textContent = target.innerText;
     })
 }
 clickedButton();
