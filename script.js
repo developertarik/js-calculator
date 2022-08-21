@@ -40,11 +40,16 @@ function operate(operation,num1,num2){
 operate();
 //todo koşulları butona tıklama ile çalışacak şekilde değiştir
 //click button 
+// yapmam gereken sayıya tıklayacağım ve analog değişecek
+// bu kadar basit
 function clickedButton() {
     //önce divi doma ekle
-    const board = document.querySelector(".board")
-    const buttons = document.querySelectorAll("button")
+    const calculator = document.getElementsByClassName("calculator")[0];
+    const board = document.querySelector(".board");
     const analog = document.querySelector(".analog")
-    document.appendChild(calculator);
+    let nums = document.querySelector(".nums")
+    calculator.addEventListener("click",()=>{
+        analog.textContent = nums;
+    })
 }
 clickedButton();
