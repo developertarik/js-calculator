@@ -21,6 +21,7 @@ function multiply(a,b) {
 function divide(a,b){
     return a/b;
 }
+
 //operate
 function operate(operation,num1,num2){
     if(operation ==="add"){
@@ -37,3 +38,13 @@ function operate(operation,num1,num2){
     }
 }
 operate();
+//todo koşulları butona tıklama ile çalışacak şekilde değiştir
+//click button 
+function clickedButton() {
+    //önce divi doma ekle
+    const board = document.querySelector(".board")
+    const buttons = document.querySelectorAll("button")
+    const analog = document.querySelector(".analog")
+    document.appendChild(calculator);
+}
+clickedButton();
