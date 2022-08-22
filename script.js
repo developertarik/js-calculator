@@ -49,11 +49,19 @@ function clickedButton() {
     const board = document.querySelector(".board");
     const analog = document.querySelector(".analog")
     let nums = document.querySelector(".nums")
-    buttons.addEventListener("click",({target})=>{
-        
-        const value  = analog.textContent = target.innerText;
+     let value;
+    nums.addEventListener("click",({target})=>{
+          value = analog.textContent = target.innerText;
+       
         console.log(value)
 
     })
+    const clear = document.getElementsByClassName("clear")[0]
+    clear.addEventListener("click" ,()=>{
+            analog.innerHTML = "";
+    })
+    //operators.addEventListener("click"(target)=>{
+    
+    
 }
 clickedButton();
