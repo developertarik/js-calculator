@@ -45,21 +45,30 @@ operate();
 function clickedButton() {
     //önce divi doma ekle
     //const calculator = document.getElementsByClassName("calculator")[0];
-    const buttons = document.getElementsByClassName("buttons")[0]
+    const buttons = document.querySelector(".buttons")
     const board = document.querySelector(".board");
     const analog = document.querySelector(".analog")
     let nums = document.querySelector(".nums")
-     let value;
+    let value;
+    let newValue  = document.createElement("div");
+    
+    //operators
+    const sumBtn = document.getElementsByClassName("sum")[0]
+    
+    //events
     nums.addEventListener("click",({target})=>{
-          value = analog.textContent = target.innerText;
+        newValue = analog.textContent =  target.innerText;
        
-        console.log(value)
+        console.log(newValue)
+        
 
     })
+    analog.appendChild(newValue)
     const clear = document.getElementsByClassName("clear")[0]
     clear.addEventListener("click" ,()=>{
             analog.innerHTML = "";
     })
+    
     //operators.addEventListener("click"(target)=>{
     
     
