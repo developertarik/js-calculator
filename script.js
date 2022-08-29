@@ -21,20 +21,24 @@ function multiply(a,b) {
 function divide(a,b){
     return a/b;
 }
-
+total = 0;
 //operate
 function operate(operation,num1,num2){
     if(operation ==="add"){
-        return sum(num1,num2);
+       total = sum(num1,num2);
+        return total
     }
     if(operation == "multiply"){
-        return multiply(num1,num2);
+        total= multiply(num1,num2);
+        return total
     }
     if(operation=="divide"){
-        return divide(num1,num2);
+        total = divide(num1,num2);
+        return total
     }
     if(operation =="subtract"){
-        return subtract(num1,num2)
+        total = subtract(num1,num2)
+        return total 
     }
 }
 operate();
@@ -42,27 +46,22 @@ operate();
 //click button 
 // yapmam gereken sayıya tıklayacağım ve analog değişecek
 // bu kadar basit
-function clickedButton() {
+function clickedButton(operate) {
     //önce divi doma ekle
     //const calculator = document.getElementsByClassName("calculator")[0];
     const buttons = document.querySelector(".buttons")
     const board = document.querySelector(".board");
     const analog = document.querySelector(".analog")
-    let nums = document.querySelector(".nums")
-    let value;
+    let nums = document.querySelector(".btn")
+    let total;
     let newValue  = document.createElement("div");
     
+    
     //operators
-    const sumBtn = document.getElementsByClassName("sum")[0]
+    const sumBtn = document.getElementsByClassName("sum")
     
     //events
-    nums.addEventListener("click",({target})=>{
-        newValue = analog.textContent =  target.innerText;
-       
-        console.log(newValue)
-        
-
-    })
+    nums.addEventListener("click",()=>{})
     analog.appendChild(newValue)
     const clear = document.getElementsByClassName("clear")[0]
     clear.addEventListener("click" ,()=>{
