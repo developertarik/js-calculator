@@ -50,9 +50,10 @@ function clickedButton(operate) {
     //önce divi doma ekle
     //const calculator = document.getElementsByClassName("calculator")[0];
     const buttons = document.querySelector(".buttons")
+    console.log(buttons)
     const board = document.querySelector(".board");
     const analog = document.querySelector(".analog")
-    let nums = document.querySelector(".btn")
+    let nums = document.querySelector(".num-column");
     let total;
     let newValue  = document.createElement("div");
     
@@ -61,15 +62,23 @@ function clickedButton(operate) {
     const sumBtn = document.getElementsByClassName("sum")
     
     //events
-    nums.addEventListener("click",()=>{})
+    nums.addEventListener("click",({target})=>{
+       
+        newValue  = analog.innerHTML = target.innerText;
+       
+        console.log(newValue)
+})
     analog.appendChild(newValue)
     const clear = document.getElementsByClassName("clear")[0]
     clear.addEventListener("click" ,()=>{
             analog.innerHTML = "";
     })
-    
-    //operators.addEventListener("click"(target)=>{
-    
+    const operatorSum = document.getElementsByClassName("sum")[0]
+    operatorSum.addEventListener("click",(newValue)=>{
+        newNewValue = newValue
+        console.log(newNewValue)
+    }
+    )    
     
 }
 clickedButton();
