@@ -53,7 +53,10 @@ function clickedButton(newValue) {
     const buttons = document.getElementsByClassName("btn")
     console.log(buttons)
     const board = document.querySelector(".board");
-    const analog = document.querySelector(".analog")
+    const analog = document.querySelector(".analog");
+    const newAnalog = document.createElement("div")
+    analog.appendChild(newAnalog)
+
     let nums = document.querySelector(".num-column");
     let total;
     newValue  = document.createElement("div");
@@ -67,8 +70,10 @@ function clickedButton(newValue) {
     //events
 Array.prototype.forEach.call(buttons,(e)=>{
     e.addEventListener("click",()=>analog.innerHTML+=e.innerHTML)
-     value = e.target;
+ 
 })
+sumBtn.addEventListener("click",()=>console.log(analog.innerHTML))
+console.log(newAnalog.innerHTML)
 
 //sum 
 
