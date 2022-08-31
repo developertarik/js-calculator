@@ -50,7 +50,7 @@ operate();
 function clickedButton(newValue) {
     //önce divi doma ekle
     //const calculator = document.getElementsByClassName("calculator")[0];
-    const buttons = document.querySelector(".buttons")
+    const buttons = document.getElementsByClassName("btn")
     console.log(buttons)
     const board = document.querySelector(".board");
     const analog = document.querySelector(".analog")
@@ -60,33 +60,48 @@ function clickedButton(newValue) {
     
     
     //operators
-    const sumBtn = document.getElementsByClassName("sum")
+    const sumBtn = document.getElementById("sum")
+    //buttons
     
-   
-    //events
-        nums.addEventListener("click",({target})=>{
-        
-            newValue  = analog.innerHTML =  target.innerText;
-            console.log(newValue)
 
+    //events
+Array.prototype.forEach.call(buttons,(e)=>{
+    e.addEventListener("click",()=>analog.innerHTML+=e.innerHTML)
+     value = e.target;
+})
+
+//sum 
+
+
+
+
+
+
+
+
+
+    /*
+            nums.addEventListener("click",({target})=>{
             
-    })
-nums.addEventListener("click",({target})=>{
+                newValue  = analog.innerHTML =  target.innerText;
+                console.log(newValue)
+
+                
+          })
+        */
+/*nums.addEventListener("click",({target})=>{
     let newvValue = analog.innerHTML = target.innerText;
     newvValue += 5
     
     console.log(typeof newvValue)
 })
+*/
     analog.appendChild(newValue)
     const clear = document.getElementsByClassName("clear")[0]
     clear.addEventListener("click" ,()=>{
             analog.innerHTML = "";
     })
-    const operatorSum = document.getElementsByClassName("sum")[0]
-    operatorSum.addEventListener("click",(newValue)=>{
-       
-    }
-    )    
+    
    
 }
 
