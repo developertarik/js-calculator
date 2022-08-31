@@ -46,7 +46,8 @@ operate();
 //click button 
 // yapmam gereken sayıya tıklayacağım ve analog değişecek
 // bu kadar basit
-function clickedButton(operate) {
+
+function clickedButton(newValue) {
     //önce divi doma ekle
     //const calculator = document.getElementsByClassName("calculator")[0];
     const buttons = document.querySelector(".buttons")
@@ -55,18 +56,26 @@ function clickedButton(operate) {
     const analog = document.querySelector(".analog")
     let nums = document.querySelector(".num-column");
     let total;
-    let newValue  = document.createElement("div");
+    newValue  = document.createElement("div");
     
     
     //operators
     const sumBtn = document.getElementsByClassName("sum")
     
+   
     //events
-    nums.addEventListener("click",({target})=>{
-       
-        newValue  = analog.innerHTML = target.innerText;
-       
-        console.log(newValue)
+        nums.addEventListener("click",({target})=>{
+        
+            newValue  = analog.innerHTML =  target.innerText;
+            console.log(newValue)
+
+            
+    })
+nums.addEventListener("click",({target})=>{
+    let newvValue = analog.innerHTML = target.innerText;
+    newvValue += 5
+    
+    console.log(typeof newvValue)
 })
     analog.appendChild(newValue)
     const clear = document.getElementsByClassName("clear")[0]
@@ -75,10 +84,10 @@ function clickedButton(operate) {
     })
     const operatorSum = document.getElementsByClassName("sum")[0]
     operatorSum.addEventListener("click",(newValue)=>{
-        newNewValue = newValue
-        console.log(newNewValue)
+       
     }
     )    
-    
+   
 }
+
 clickedButton();
