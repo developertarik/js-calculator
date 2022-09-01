@@ -23,22 +23,25 @@ function divide(a,b){
 }
 total = 0;
 //operate
-function operate(operation,num1,num2){
+function operate(operation,a,b){
     if(operation ==="add"){
-       total = sum(num1,num2);
+       total = sum(a,b);
         return total
     }
     if(operation == "multiply"){
-        total= multiply(num1,num2);
+        total= multiply(a,b);
         return total
     }
     if(operation=="divide"){
-        total = divide(num1,num2);
+        total = divide(a,b);
         return total
     }
     if(operation =="subtract"){
-        total = subtract(num1,num2)
+        total = subtract(a,b)
         return total 
+    }
+    else{
+        return false
     }
 }
 operate();
@@ -69,7 +72,7 @@ function clickedButton(newValue) {
 
     //events
 Array.prototype.forEach.call(buttons,(e)=>{
-    e.addEventListener("click",()=>analog.innerHTML+=e.innerHTML)
+    e.addEventListener("click",()=> = analog.innerHTML+=e.innerHTML)
  
 })
 sumBtn.addEventListener("click",()=>console.log(analog.innerHTML))
