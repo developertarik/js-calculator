@@ -43,68 +43,18 @@ operate();
 // clear ve eşittir farklı tuşlar yap
 let num = document.querySelectorAll(".num")
 let operators = document.querySelectorAll(".operator");
+let equalBtn = document.querySelector(".equal");
+let clearBtn = document.querySelector(".clear")
 
-function clickedButton(newValue) {
+function clicked() {
     //önce divi doma ekle
     //const calculator = document.getElementsByClassName("calculator")[0];
-    const buttons = document.getElementsByClassName("btn")
-    console.log(buttons)
-    const board = document.querySelector(".board");
     const analog = document.querySelector(".analog");
-    const newAnalog = document.createElement("div")
-    analog.appendChild(newAnalog)
-
-    let nums = document.querySelectorAll(".num");
-    let total;
-    newValue  = document.createElement("div");
-    
-    
-    //operators
-    const sumBtn = document.getElementById("sum")
-    //buttons
-    
-
-    //events
 Array.prototype.forEach.call(buttons,(e)=>{
     e.addEventListener("click",()=>  analog.innerHTML+=e.innerHTML)
  
 })
-sumBtn.addEventListener("click",()=>console.log(analog.innerHTML))
-console.log(newAnalog.innerHTML)
 
-//sum 
-
-
-
-
-
-
-
-
-
-    /*
-            nums.addEventListener("click",({target})=>{
-            
-                newValue  = analog.innerHTML =  target.innerText;
-                console.log(newValue)
-
-                
-          })
-        */
-/*nums.addEventListener("click",({target})=>{
-    let newvValue = analog.innerHTML = target.innerText;
-    newvValue += 5
-    
-    console.log(typeof newvValue)
-})
-*/
-    analog.appendChild(newValue)
-    const clear = document.getElementsByClassName("clear")[0]
-    clear.addEventListener("click" ,()=>{
-            analog.innerHTML = "";
-    })
-    
-   
 }
 
-clickedButton();
+clicked();
