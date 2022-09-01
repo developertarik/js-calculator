@@ -38,17 +38,21 @@ function operate(operation,a,b){
     }
 }
 operate();
+// todo olması gerekenler numara butonları num queryselectorall
+// operatorler operators queryselector all
+// clear ve eşittir farklı tuşlar yap
+let num = document.querySelectorAll(".num")
+let operators = document.querySelectorAll(".operator");
 
-const buttons = document.getElementsByClassName("btn")
+function clickedButton(newValue) {
+    //önce divi doma ekle
+    //const calculator = document.getElementsByClassName("calculator")[0];
+    const buttons = document.getElementsByClassName("btn")
     console.log(buttons)
     const board = document.querySelector(".board");
     const analog = document.querySelector(".analog");
     const newAnalog = document.createElement("div")
     analog.appendChild(newAnalog)
-function clickedButton(newValue) {
-    //önce divi doma ekle
-    //const calculator = document.getElementsByClassName("calculator")[0];
-    
 
     let nums = document.querySelectorAll(".num");
     let total;
