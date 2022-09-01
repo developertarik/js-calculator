@@ -1,23 +1,16 @@
-/*
-4işlev oluştur ve test et 
-1. toplama
-2. çıkarma
-3. çarpma 
-4. bölme */
-
-//1
+// basic function
 function sum(a,b) {
     return a+b;
 }
-//2
+
 function subtract(a,b) {
     return a-b;
 }
-//3
+
 function multiply(a,b) {
     return a*b;
 }
-//4
+
 function divide(a,b){
     return a/b;
 }
@@ -45,22 +38,19 @@ function operate(operation,a,b){
     }
 }
 operate();
-//todo koşulları butona tıklama ile çalışacak şekilde değiştir
-//click button 
-// yapmam gereken sayıya tıklayacağım ve analog değişecek
-// bu kadar basit
 
-function clickedButton(newValue) {
-    //önce divi doma ekle
-    //const calculator = document.getElementsByClassName("calculator")[0];
-    const buttons = document.getElementsByClassName("btn")
+const buttons = document.getElementsByClassName("btn")
     console.log(buttons)
     const board = document.querySelector(".board");
     const analog = document.querySelector(".analog");
     const newAnalog = document.createElement("div")
     analog.appendChild(newAnalog)
+function clickedButton(newValue) {
+    //önce divi doma ekle
+    //const calculator = document.getElementsByClassName("calculator")[0];
+    
 
-    let nums = document.querySelector(".num-column");
+    let nums = document.querySelectorAll(".num");
     let total;
     newValue  = document.createElement("div");
     
@@ -72,7 +62,7 @@ function clickedButton(newValue) {
 
     //events
 Array.prototype.forEach.call(buttons,(e)=>{
-    e.addEventListener("click",()=> = analog.innerHTML+=e.innerHTML)
+    e.addEventListener("click",()=>  analog.innerHTML+=e.innerHTML)
  
 })
 sumBtn.addEventListener("click",()=>console.log(analog.innerHTML))
