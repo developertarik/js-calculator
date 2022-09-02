@@ -45,14 +45,16 @@ let num = document.querySelectorAll(".num")
 let operators = document.querySelectorAll(".operator");
 let equalBtn = document.querySelector(".equal");
 let clearBtn = document.querySelector(".clear")
-
+let value = 0;
 function clicked() {
     //önce divi doma ekle
     //const calculator = document.getElementsByClassName("calculator")[0];
     const analog = document.querySelector(".analog");
-Array.prototype.forEach.call(buttons,(e)=>{
-    e.addEventListener("click",()=>  analog.innerHTML+=e.innerHTML)
- 
+Array.prototype.forEach.call(num,(e)=>{
+    e.addEventListener("click",function(current){ 
+     current = analog.innerHTML+=e.innerHTML
+
+    })
 })
 
 }
