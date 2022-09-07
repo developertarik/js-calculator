@@ -47,6 +47,7 @@ let equalBtn = document.querySelector(".equal");
 let clearBtn = document.querySelector(".clear")
 let value = 0;
 let newValue = 0;
+let number2 = 0;
 function clicked() {
     //önce divi doma ekle
     //const calculator = document.getElementsByClassName("calculator")[0];
@@ -56,9 +57,17 @@ Array.prototype.forEach.call(num,(e)=>{
     value = current = analog.innerHTML+=e.innerHTML
     })
 })
+Array.prototype.forEach.call(operators,(e)=>{
+    e.addEventListener("click",function(){
+        number2 = analog.innerHTML += e.innerHTML;
+        console.log(number2)
+        
+    })
+})  
 clearBtn.addEventListener("click",()=>analog.innerHTML="")
 
-equalBtn.addEventListener("click",()=>console.log(value),analog.innerHTML="")
+equalBtn.addEventListener("click",()=>console.log(value))
 }
+
 
 clicked();
