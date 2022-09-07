@@ -63,7 +63,7 @@ Array.prototype.forEach.call(operators,(e)=>{
         console.log(number2)
         
     })
-})  
+})
 clearBtn.addEventListener("click",()=>analog.innerHTML="")
 
 equalBtn.addEventListener("click",()=>console.log(value))
