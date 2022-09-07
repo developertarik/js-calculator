@@ -17,19 +17,19 @@ function divide(a,b){
 total = 0;
 //operate
 function operate(operation,a,b){
-    if(operation ==="add"){
+    if(operation ==="+"){
        total = sum(a,b);
         return total
     }
-    if(operation == "multiply"){
+    if(operation == "*"){
         total= multiply(a,b);
         return total
     }
-    if(operation=="divide"){
+    if(operation=="/"){
         total = divide(a,b);
         return total
     }
-    if(operation =="subtract"){
+    if(operation =="-"){
         total = subtract(a,b)
         return total 
     }
@@ -48,7 +48,7 @@ let clearBtn = document.querySelector(".clear")
 let value = 0;
 let newValue = 0;
 let number2;
-let islem;
+operation="";
 function clicked() {
     //önce divi doma ekle
     //const calculator = document.getElementsByClassName("calculator")[0];
@@ -56,17 +56,17 @@ function clicked() {
     const newDisplay = document.createElement("div");
 Array.prototype.forEach.call(num,(e)=>{
     e.addEventListener("click",function(current){ 
-    value = current = analog.innerHTML+=e.innerHTML
+    value = current = analog.textContent+=e.textContent
     })
 })
 Array.prototype.forEach.call(operators,(e)=>{
     e.addEventListener("click",function(){
-        analog.innerHTML += value;
+        analog.textContent += value;
         Number(value);
         console.log(value);
-        analog.innerHTML = "";  
-        islem += e.innerHTML
-        console.log(islem);
+        analog.textContent = "";  
+        operation += e.innerHTML
+        console.log(operation);
        
         
     })
