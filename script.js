@@ -73,7 +73,7 @@ Array.prototype.forEach.call(operators,(e)=>{
 })
 clearBtn.addEventListener("click",()=>analog.innerHTML="")
 
-equalBtn.addEventListener("click",()=>console.log(value))
+equalBtn.addEventListener("click",()=>analog.textContent ="")
 }
 
 
