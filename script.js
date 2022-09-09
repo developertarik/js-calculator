@@ -26,15 +26,15 @@ function operate(operation,number1,number2){
        total = sum(number1,number2);
         return total
     }
-    if(operation == "*"){
+    if(operation === "*"){
         total= multiply(number1,number2);
-        return total
+        console.log( total)
     }
-    if(operation=="/"){
+    if(operation==="/"){
         total = divide(number1,number2);
         return total
     }
-    if(operation =="-"){
+    if(operation ==="-"){
         total = subtract(number1,number2)
         return total 
     }
@@ -52,7 +52,7 @@ let clearBtn = document.querySelector(".clear")
 let number1 = "";
 operation="";
 let number2 = 0;
-function clicked() {
+function clicked(operate) {
     //önce divi doma ekle
     //const calculator = document.getElementsByClassName("calculator")[0];
     const analog = document.querySelector(".analog");
@@ -66,18 +66,44 @@ Array.prototype.forEach.call(operators,(e)=>{
     e.addEventListener("click",function(){
     number1 = analog.textContent
     Number(number1)
-    operators = e.textContent
+    operation = e.textContent
     console.log(number1)
     analog.textContent =""
-    console.log(operators)
+    console.log(typeof operation)
+    
         
     })
 })
 clearBtn.addEventListener("click",()=>analog.innerHTML="")
 
-equalBtn.addEventListener("click",()=>analog.textContent = number1*number2)
+equalBtn.addEventListener("click",()=>{
+    if(operation ==="+"){
+        total = number1+number2;
+         console.log( total)
+         analog.textContent = total;
+     }
+     if(operation === "*" ){
+         total= number1*number2;
+         console.log( total)
+         analog.textContent = total;
+     }
+     if(operation==="/"){
+         total = number1/number2;
+         console.log( total)
+         analog.textContent = total;
+     }
+     if(operation ==="-"){
+         total = number1-number2;
+         console.log(total) 
+         analog.textContent = total;
+     }
+     else{
+         return false
+     }
+    
+})
 }
 
 
-
-clicked();
+operate()
+clicked(operate);
