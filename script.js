@@ -69,7 +69,7 @@ Array.prototype.forEach.call(operators,(e)=>{
     operation = e.textContent
     console.log(number1)
     analog.textContent =""
-    console.log(typeof operation)
+    console.log( operation)
     
         
     })
@@ -78,7 +78,7 @@ clearBtn.addEventListener("click",()=>analog.innerHTML="")
 
 equalBtn.addEventListener("click",()=>{
     if(operation ==="+"){
-        total = number1+number2;
+        total = Number(number1)+Number(number2);
          console.log( total)
          analog.textContent = total;
      }
