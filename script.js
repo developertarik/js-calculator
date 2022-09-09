@@ -74,7 +74,7 @@ Array.prototype.forEach.call(operators,(e)=>{
         
     })
 })
-clearBtn.addEventListener("click",()=>analog.innerHTML="")
+clearBtn.addEventListener("click",()=>window.location.reload())
 
 equalBtn.addEventListener("click",()=>{
     if(operation ==="+"){
