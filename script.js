@@ -12,32 +12,36 @@ function multiply(a,b) {
 }
 
 function divide(a,b){
-    return a/b;
+    if((b)==0){
+        return "no"
+    }
+    else{
+        return a/b;
+    }
 }
 total = 0;
 //operate
-function operate(operation,a,b){
+function operate(operation,number1,number2){
     if(operation ==="+"){
-       total = sum(a,b);
+       total = sum(number1,number2);
         return total
     }
     if(operation == "*"){
-        total= multiply(a,b);
+        total= multiply(number1,number2);
         return total
     }
     if(operation=="/"){
-        total = divide(a,b);
+        total = divide(number1,number2);
         return total
     }
     if(operation =="-"){
-        total = subtract(a,b)
+        total = subtract(number1,number2)
         return total 
     }
     else{
         return false
     }
 }
-operate();
 // todo olması gerekenler numara butonları num queryselectorall
 // operatorler operators queryselector all
 // clear ve eşittir farklı tuşlar yap
@@ -45,10 +49,9 @@ let num = document.querySelectorAll(".num")
 let operators = document.querySelectorAll(".operator");
 let equalBtn = document.querySelector(".equal");
 let clearBtn = document.querySelector(".clear")
-let value = 0;
-let newValue = 0;
-let number2;
+let number1 = "";
 operation="";
+let number2 = 0;
 function clicked() {
     //önce divi doma ekle
     //const calculator = document.getElementsByClassName("calculator")[0];
@@ -56,25 +59,25 @@ function clicked() {
     const newDisplay = document.createElement("div");
 Array.prototype.forEach.call(num,(e)=>{
     e.addEventListener("click",function(current){ 
-    value = current = analog.textContent+=e.textContent
+    number2 = current = analog.textContent+=e.textContent
     })
 })
 Array.prototype.forEach.call(operators,(e)=>{
     e.addEventListener("click",function(){
-        analog.textContent += value;
-        Number(value);
-        console.log(value);
-        analog.textContent = "";  
-        operation += e.innerHTML
-        console.log(operation);
-       
+    number1 = analog.textContent
+    Number(number1)
+    operators = e.textContent
+    console.log(number1)
+    analog.textContent =""
+    console.log(operators)
         
     })
 })
 clearBtn.addEventListener("click",()=>analog.innerHTML="")
 
-equalBtn.addEventListener("click",()=>analog.textContent ="")
+equalBtn.addEventListener("click",()=>analog.textContent = number1*number2)
 }
+
 
 
 clicked();
