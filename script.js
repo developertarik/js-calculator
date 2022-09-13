@@ -80,22 +80,27 @@ equalBtn.addEventListener("click",()=>{
     if(operation ==="+"){
         total = Number(number1)+Number(number2);
          console.log( total)
-         analog.textContent = total;
+         analog.textContent = Math.round(total);
      }
      if(operation === "*" ){
          total= number1*number2;
          console.log( total)
-         analog.textContent = total;
+         analog.textContent = Math.round(total);
      }
      if(operation==="/"){
+        if( number2==0){
+            alert("Not divide 0 please try again!")
+        }
+        else{
          total = number1/number2;
          console.log( total)
-         analog.textContent = total;
-     }
+         analog.textContent = Math.round(total);
+        }
+        }
      if(operation ==="-"){
          total = number1-number2;
          console.log(total) 
-         analog.textContent = total;
+         analog.textContent = Math.round(total);
      }
      else{
          return false
