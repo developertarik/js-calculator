@@ -66,28 +66,63 @@ Array.prototype.forEach.call(operators,(e)=>{
     e.addEventListener("click",function(){
     number1 = analog.textContent
     Number(number1)
-    operation = e.textContent
     console.log(number1)
-    analog.textContent =""
-    console.log( operation)
     
+    operation += e.textContent
         
+    console.log( operation)
+    secondOperation = operation.slice(0,2)
+    lastOperation = 25
+    if(lastOperation !==NaN || lastOperation !="" || lastOperation !==undefined) {
+        if(secondOperation =="**"){
+            analog.textContent =""
+            total = Number(number1)*Number(number2)
+            console.log(total)
+            analog.textContent = Math.round(total)
+        }        
+        if(secondOperation ==="++"){
+            analog.textContent =""
+            total = Number(number1)+Number(number2)
+            console.log(total)
+            analog.textContent = Math.round(total)
+        }
+        if(secondOperation ==="--"){
+            analog.textContent =""
+            total = Number(number1)-Number(number2)
+            console.log(total)
+            analog.textContent = Math.round(total)
+        }
+        if(secondOperation ==="//"){
+            analog.textContent =""
+            total = Number(number1)/Number(number2)
+            analog.textContent = Math.round(total)
+
+        }
+    }   
+  
     })
 })
+
 clearBtn.addEventListener("click",()=>window.location.reload())
 
 equalBtn.addEventListener("click",()=>{
     if(operation ==="+"){
+        analog.textContent =""
+
         total = Number(number1)+Number(number2);
          console.log( total)
          analog.textContent = Math.round(total);
      }
      if(operation === "*" ){
+        analog.textContent =""
+
          total= number1*number2;
          console.log( total)
          analog.textContent = Math.round(total);
      }
      if(operation==="/"){
+        analog.textContent =""
+
         if( number2==0){
             alert("Not divide 0 please try again!")
         }
