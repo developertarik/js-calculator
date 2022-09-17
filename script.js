@@ -2,11 +2,11 @@
 TODO
 [x] Add missing semicolons
 [x] Add let or const to variable initializations
-[ ] After adding let/const to variable initializations, uncomment "use strict" below
+[x] After adding let/const to variable initializations, uncomment "use strict" below
 [ ] Move the event listeners out of the clicked function
 */
 
-// "use strict"
+"use strict"
 
 /*************/
 /* Variables */
@@ -79,34 +79,15 @@ function operate(operation, number1, number2) {
 // todo olması gerekenler numara butonları num queryselectorall
 // operatorler operators queryselector all
 // clear ve eşittir farklı tuşlar yap
-
+const analog = document.querySelector(".analog");
+const newDisplay = document.createElement("div");
 // Parameter operate is being passed in here as a callback function but is never used
 function clicked() {
     //önce divi doma ekle
     //const calculator = document.getElementsByClassName("calculator")[0];
-    const analog = document.querySelector(".analog");
-    const newDisplay = document.createElement("div");
-    Array.prototype.forEach.call(num, (e) => {
-        e.addEventListener("click", function (current) {
-            number1 = analog.textContent += e.textContent;
-        })
-    })
-    Array.prototype.forEach.call(operators, (e) => {
-        e.addEventListener("click", function () {
-            number2 = analog.textContent;
-
-            Number(number1);
-            console.log(number1);
-            Number(number2);
-            operation = e.textContent;
-            analog.textContent = "";
-
-            console.log(operation);
-            secondOperation = e.textContent;
-            console.log(number2);
-
-        })
-    })
+  
+   
+    
 
     clearBtn.addEventListener("click", () => window.location.reload())
 
@@ -146,7 +127,27 @@ function clicked() {
 
     })
 }
+Array.prototype.forEach.call(num, (e) => {
+    e.addEventListener("click", function (current) {
+        number1 = analog.textContent += e.textContent;
+    })
+})
+Array.prototype.forEach.call(operators, (e) => {
+    e.addEventListener("click", function () {
+        number2 = analog.textContent;
 
+        Number(number1);
+        console.log(number1);
+        Number(number2);
+        operation = e.textContent;
+        analog.textContent = "";
+
+        console.log(operation);
+        secondOperation = e.textContent;
+        console.log(number2);
+
+    })
+})
 // The following is getting called but it's not doing anything (returns false here)
 //operate()
 clicked(operate);
