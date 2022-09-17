@@ -1,6 +1,6 @@
 /*
 TODO
-[ ] Add missing semicolons
+[x] Add missing semicolons
 [ ] Add let or const to variable initializations
 [ ] After adding let/const to variable initializations, uncomment "use strict" below
 [ ] Move the event listeners out of the clicked function
@@ -12,10 +12,10 @@ TODO
 /* Variables */
 /*************/
 total = 0;
-let num = document.querySelectorAll(".num")
+let num = document.querySelectorAll(".num");
 let operators = document.querySelectorAll(".operator");
 let equalBtn = document.querySelector(".equal");
-let clearBtn = document.querySelector(".clear")
+let clearBtn = document.querySelector(".clear");
 let number1 = "";
 operation = "";
 secondOperation = "";
@@ -47,7 +47,7 @@ function multiply(a, b) {
 
 function divide(a, b) {
     if ((b) == 0) {
-        return "no"
+        return "no";
     }
     else {
         return a / b;
@@ -58,22 +58,22 @@ function divide(a, b) {
 function operate(operation, number1, number2) {
     if (operation === "+") {
         total = sum(Number(number1), Number(number2));
-        return total
+        return total;
     }
     if (operation === "*") {
         total = multiply(Number(number1), Number(number2));
-        console.log(total)
+        console.log(total);
     }
     if (operation === "/") {
         total = divide(Number(number1), Number(number2));
-        return total
+        return total;
     }
     if (operation === "-") {
         total = subtract(Number(number1), Number(number2))
-        return total
+        return total;
     }
     else {
-        return false
+        return false;
     }
 }
 // todo olması gerekenler numara butonları num queryselectorall
@@ -88,22 +88,22 @@ function clicked(operate) {
     const newDisplay = document.createElement("div");
     Array.prototype.forEach.call(num, (e) => {
         e.addEventListener("click", function (current) {
-            number1 = analog.textContent += e.textContent
+            number1 = analog.textContent += e.textContent;
         })
     })
     Array.prototype.forEach.call(operators, (e) => {
         e.addEventListener("click", function () {
-            number2 = analog.textContent
+            number2 = analog.textContent;
 
-            Number(number1)
-            console.log(number1)
-            Number(number2)
-            operation = e.textContent
-            analog.textContent = ""
+            Number(number1);
+            console.log(number1);
+            Number(number2);
+            operation = e.textContent;
+            analog.textContent = "";
 
-            console.log(operation)
-            secondOperation = e.textContent
-            console.log(number2)
+            console.log(operation);
+            secondOperation = e.textContent;
+            console.log(number2);
 
         })
     })
@@ -112,36 +112,36 @@ function clicked(operate) {
 
     equalBtn.addEventListener("click", () => {
         if (operation === "+") {
-            analog.textContent = ""
+            analog.textContent = "";
             total = Number(number1) + Number(number2);
 
             analog.textContent = Math.round(total);
         }
         if (operation === "*") {
-            analog.textContent = ""
+            analog.textContent = "";
             total = Number(number1) * Number(number2);
-            console.log(total)
+            console.log(total);
             analog.textContent = Math.round(total);
         }
         if (operation === "/") {
-            analog.textContent = ""
+            analog.textContent = "";
 
             if (number2 == 0) {
-                alert("Not divide 0 please try again!")
+                alert("Not divide 0 please try again!");
             }
             else {
                 total = number1 / number2;
-                console.log(total)
+                console.log(total);
                 analog.textContent = Math.round(total);
             }
         }
         if (operation === "-") {
             total = number1 - number2;
-            console.log(total)
+            console.log(total);
             analog.textContent = Math.round(total);
         }
         else {
-            return false
+            return false;
         }
 
     })
