@@ -130,6 +130,7 @@ function clicked() {
 Array.prototype.forEach.call(num, (e) => {
     e.addEventListener("click", function (current) {
         number1 = analog.textContent += e.textContent;
+        console.log(number1)
     })
 })
 Array.prototype.forEach.call(operators, (e) => {
@@ -141,11 +142,7 @@ Array.prototype.forEach.call(operators, (e) => {
         Number(number2);
         operation = e.textContent;
         analog.textContent = "";
-
         console.log(operation);
-        secondOperation = e.textContent;
-        console.log(number2);
-
     })
 })
 // The following is getting called but it's not doing anything (returns false here)
