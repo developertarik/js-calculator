@@ -23,19 +23,19 @@ total = 0;
 //operate
 function operate(operation,number1,number2){
     if(operation ==="+"){
-       total = sum(number1,number2);
+       total = sum(Number(number1),Number(number2));
         return total
     }
     if(operation === "*"){
-        total= multiply(number1,number2);
+        total= multiply(Number(number1),Number(number2));
         console.log( total)
     }
     if(operation==="/"){
-        total = divide(number1,number2);
+        total = divide(Number(number1),Number(number2));
         return total
     }
     if(operation ==="-"){
-        total = subtract(number1,number2)
+        total = subtract(Number(number1),Number(number2))
         return total 
     }
     else{
@@ -51,6 +51,7 @@ let equalBtn = document.querySelector(".equal");
 let clearBtn = document.querySelector(".clear")
 let number1 = "";
 operation="";
+secondOperation = "";
 let number2 = 0;
 function clicked(operate) {
     //önce divi doma ekle
@@ -59,80 +60,38 @@ function clicked(operate) {
     const newDisplay = document.createElement("div");
 Array.prototype.forEach.call(num,(e)=>{
     e.addEventListener("click",function(current){ 
-    number2 = current = analog.textContent+=e.textContent
+    number1 = analog.textContent+=e.textContent
     })
 })
 Array.prototype.forEach.call(operators,(e)=>{
     e.addEventListener("click",function(){
-    number1 = analog.textContent
+    number2 = analog.textContent
+    
     Number(number1)
     console.log(number1)
-    
-    operation += e.textContent
+    Number(number2)
+    operation = e.textContent
+    analog.textContent =""
         
     console.log( operation)
-    secondOperation = operation.slice(0,2)
-    lastOperation =  operation.slice(-1)
-        if(secondOperation =="**"){
-            operation = ""
-            analog.textContent =""
-            total *= Number(number2)
-            console.log(total)
-            analog.textContent = Math.round(total)
-            secondOperation =""
-        }        
-        if(secondOperation ==="++"){
-            analog.textContent =""
-            
-            total  = Number(number1)+Number(number2)
-            console.log(total)
-            analog.textContent = Math.round(total)
-        }
-        if(secondOperation ==="--"){
-            analog.textContent =""
-            total -= Number(number2)
-            console.log(total)
-            analog.textContent = Math.round(total)
-        }
-        if(secondOperation ==="//"){
-            analog.textContent =""
-            total /= Number(number2)
-            analog.textContent = Math.round(total)
-
-        }
-      
-        if(operation==="+"){
-            
-            analog.textContent = ""
-            total += number2
-            analog.textContent =""
-            lastOperation = operation.slice(-1)
-
-        }    
-        if(operation==="*"){
-            analog.textContent =""
-            
-            total = Number(number1) *Number(number2)
-            console.log(total)
-        }
+    secondOperation =e.textContent
+    console.log(number2)
+  
     })
 })
 
 clearBtn.addEventListener("click",()=>window.location.reload())
 
-
 equalBtn.addEventListener("click",()=>{
     if(operation ==="+"){
         analog.textContent =""
-
         total = Number(number1)+Number(number2);
-         console.log( total)
+         
          analog.textContent = Math.round(total);
      }
      if(operation === "*" ){
         analog.textContent =""
-
-         total= number1*number2;
+         total= Number(number1)*Number(number2);
          console.log( total)
          analog.textContent = Math.round(total);
      }
