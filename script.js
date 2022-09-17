@@ -72,38 +72,54 @@ Array.prototype.forEach.call(operators,(e)=>{
         
     console.log( operation)
     secondOperation = operation.slice(0,2)
-    lastOperation = 25
-    if(lastOperation !==NaN || lastOperation !="" || lastOperation !==undefined) {
+    lastOperation =  operation.slice(-1)
         if(secondOperation =="**"){
+            operation = ""
             analog.textContent =""
-            total = Number(number1)*Number(number2)
+            total *= Number(number2)
             console.log(total)
             analog.textContent = Math.round(total)
+            secondOperation =""
         }        
         if(secondOperation ==="++"){
             analog.textContent =""
-            total = Number(number1)+Number(number2)
+            
+            total  = Number(number1)+Number(number2)
             console.log(total)
             analog.textContent = Math.round(total)
         }
         if(secondOperation ==="--"){
             analog.textContent =""
-            total = Number(number1)-Number(number2)
+            total -= Number(number2)
             console.log(total)
             analog.textContent = Math.round(total)
         }
         if(secondOperation ==="//"){
             analog.textContent =""
-            total = Number(number1)/Number(number2)
+            total /= Number(number2)
             analog.textContent = Math.round(total)
 
         }
-    }   
-  
+      
+        if(operation==="+"){
+            
+            analog.textContent = ""
+            total += number2
+            analog.textContent =""
+            lastOperation = operation.slice(-1)
+
+        }    
+        if(operation==="*"){
+            analog.textContent =""
+            
+            total = Number(number1) *Number(number2)
+            console.log(total)
+        }
     })
 })
 
 clearBtn.addEventListener("click",()=>window.location.reload())
+
 
 equalBtn.addEventListener("click",()=>{
     if(operation ==="+"){
