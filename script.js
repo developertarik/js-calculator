@@ -1,7 +1,7 @@
 /*
 TODO
 [x] Add missing semicolons
-[ ] Add let or const to variable initializations
+[x] Add let or const to variable initializations
 [ ] After adding let/const to variable initializations, uncomment "use strict" below
 [ ] Move the event listeners out of the clicked function
 */
@@ -11,14 +11,14 @@ TODO
 /*************/
 /* Variables */
 /*************/
-total = 0;
+let total = 0;
 let num = document.querySelectorAll(".num");
 let operators = document.querySelectorAll(".operator");
 let equalBtn = document.querySelector(".equal");
 let clearBtn = document.querySelector(".clear");
 let number1 = "";
-operation = "";
-secondOperation = "";
+let operation = "";
+let secondOperation = "";
 let number2 = 0;
 
 /********************/
@@ -81,7 +81,7 @@ function operate(operation, number1, number2) {
 // clear ve eşittir farklı tuşlar yap
 
 // Parameter operate is being passed in here as a callback function but is never used
-function clicked(operate) {
+function clicked() {
     //önce divi doma ekle
     //const calculator = document.getElementsByClassName("calculator")[0];
     const analog = document.querySelector(".analog");
