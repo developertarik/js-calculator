@@ -89,7 +89,27 @@ function clicked() {
    
     
 
-    clearBtn.addEventListener("click", () => window.location.reload())
+
+}
+Array.prototype.forEach.call(num, (e) => {
+    e.addEventListener("click", function (current) {
+        number1 = analog.textContent += e.textContent;
+        console.log(number1)
+    })
+})
+Array.prototype.forEach.call(operators, (e) => {
+    e.addEventListener("click", function () {
+        number2 = analog.textContent;
+
+        Number(number1);
+        console.log(number1);
+        Number(number2);
+        operation = e.textContent;
+        analog.textContent = "";
+        console.log(operation);
+    })
+})
+  clearBtn.addEventListener("click", () => window.location.reload())
 
     equalBtn.addEventListener("click", () => {
         if (operation === "+") {
@@ -126,25 +146,6 @@ function clicked() {
         }
 
     })
-}
-Array.prototype.forEach.call(num, (e) => {
-    e.addEventListener("click", function (current) {
-        number1 = analog.textContent += e.textContent;
-        console.log(number1)
-    })
-})
-Array.prototype.forEach.call(operators, (e) => {
-    e.addEventListener("click", function () {
-        number2 = analog.textContent;
-
-        Number(number1);
-        console.log(number1);
-        Number(number2);
-        operation = e.textContent;
-        analog.textContent = "";
-        console.log(operation);
-    })
-})
 // The following is getting called but it's not doing anything (returns false here)
 //operate()
 clicked(operate);
