@@ -80,35 +80,32 @@ function operate(operation, number1, number2) {
 // operatorler operators queryselector all
 // clear ve eşittir farklı tuşlar yap
 const analog = document.querySelector(".analog");
-const newDisplay = document.createElement("div");
+const newDisplay = document.querySelector(".newDisplay");
 // Parameter operate is being passed in here as a callback function but is never used
-function clicked() {
-    //önce divi doma ekle
-    //const calculator = document.getElementsByClassName("calculator")[0];
-  
-   
-    
 
-
-}
 Array.prototype.forEach.call(num, (e) => {
     e.addEventListener("click", function (current) {
+       
         number1 = analog.textContent += e.textContent;
         console.log(number1)
     })
 })
 Array.prototype.forEach.call(operators, (e) => {
     e.addEventListener("click", function () {
-        number2 = analog.textContent;
+      number2 = analog.textContent;
+      Number(number1);
+      Number(number2);
 
-        Number(number1);
-        console.log(number1);
-        Number(number2);
-        operation = e.textContent;
-        analog.textContent = "";
+   
+    //     console.log(number1);
+    operation = e.textContent;
+     number2=  analog.textContent ;
+    number2 = Number(number2)
+    analog.textContent = ""
         console.log(operation);
     })
 })
+
   clearBtn.addEventListener("click", () => window.location.reload())
 
     equalBtn.addEventListener("click", () => {

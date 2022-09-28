@@ -33,6 +33,11 @@
    font-family: "Silkscreen",cursive;
    padding:20px;
 }
+.newDisplay{
+    background-color: rgb(123, 116, 116);
+    font-family: "Silkscreen",cursive;
+    padding:20px;
+ }
 .operators{
     display:flex;
     flex-direction: column;
