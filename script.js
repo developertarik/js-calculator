@@ -92,37 +92,12 @@ Array.prototype.forEach.call(num, (e) => {
 })
 Array.prototype.forEach.call(operators, (e) => {
     e.addEventListener("click", function (operate) {
-     analog.textContent = Number(currentNum)
+        analog.textContent = Number(currentNum)
+
      currentNum = Number(lastNum) + Number(analog.textContent)
 
         console.log(currentNum)
-        if(operation ==="+"){
-            currentNum = Number(lastNum) + Number(analog.textContent)
-            total = currentNum
-            console.log(total)
-            analog.textContent = ""
 
-        analog.textContent = Number(currentNum)
-        }
-        if(operation==="-"){
-            currentNum = Number(lastNum) - Number(analog.textContent)
-            total = currentNum
-           
-                Math.abs(total)
-
-            
-            console.log(total)
-            analog.textContent = total
-
-        }
-        if(operation ==="/"){
-            currentNum = Number(lastNum) / Number(analog.textContent)
-
-        }
-        if(operation==="*"){
-            currentNum = Number(lastNum) * Number(analog.textContent)
-
-        }
    
     //     console.log(number1);
     operation = e.textContent;
@@ -131,54 +106,57 @@ Array.prototype.forEach.call(operators, (e) => {
     })
 })
 
-  clearBtn.addEventListener("click", () => window.location.reload())
+//equal Click function
+function equalClick(){
+    if (operation === "+") {
+        analog.textContent = "";
+        total = Number(currentNum) + Number(lastNum);
 
-    equalBtn.addEventListener("click", () => {
-        if (operation === "+") {
-            analog.textContent = "";
-            total = Number(currentNum) + Number(lastNum);
+        analog.textContent = Math.round(total);
+        console.log(lastNum,operation, currentNum,"=",total)
 
-            analog.textContent = Math.round(total);
-        }
-        if (operation === "*") {
-            analog.textContent = "";
-            total = Number(currentNum) * Number(lastNum);
-            console.log(total);
-            analog.textContent = Math.round(total);
-        }
-        if (operation === "/") {
-            analog.textContent = "";
+    }
+    if (operation === "*") {
+        analog.textContent = "";
+        total = Number(currentNum) * Number(lastNum);
+        console.log(total);
+        analog.textContent = Math.round(total);
+        console.log(lastNum,operation, currentNum,"=",total)
 
-            if (number2 == 0) {
-                alert("Not divide 0 please try again!");
-            }
-            else {
-                total = number1 / number2;
-                console.log(total);
-                analog.textContent = Math.round(total);
-            }
-        }
-        if (operation === "-") {
-            analog.textContent = "";
-            total = Number(currentNum) - Number(lastNum);
+    }
+    if (operation === "/") {
+        analog.textContent = "";
 
-            analog.textContent = Math.round(total);
+        if (currentNum == 0) {
+            alert("Not divide 0 please try again!");
         }
         else {
-            return false;
-        }
+            total = currentNum / lastNum;
+            console.log(total);
+            analog.textContent = Math.round(total);
+            console.log(lastNum,operation, currentNum,"=",total)
 
-    })
+        }
+    }
+    if (operation === "-") {
+        analog.textContent = "";
+        total = Number(currentNum) - Number(lastNum);
+
+        analog.textContent = Math.round(total);
+        console.log(lastNum,operation, currentNum,"=",total)
+
+    }
+    else {
+        return false;
+    }
+}
+function clearClick(){
+    window.location.reload();
+}
+//events
+  clearBtn.addEventListener("click",clearClick)
+
+    equalBtn.addEventListener("click",equalClick)
 // The following is getting called but it's not doing anything (returns false here)
 //operate()
-operate();/*
-Hesap makinesinin çalışmasını sağlayın! Bir kullanıcı bir operatöre bastığında hesap makinesine girilen ilk sayıyı kaydetmeniz ve ayrıca hangi işlemin seçildiğini kaydetmeniz ve ardından operate()kullanıcı “=” tuşuna bastığında bu numaralara kaydetmeniz gerekecektir.
-Ekranı doldurabilecek koda zaten sahip olmalısınız, bu nedenle bir kez operate()çağrıldığında, ekranı işleme 'çözüm' ile güncelleyin.
-Bu projenin en zor kısmı. Tüm değerleri nasıl saklayacağınızı bulmanız ve onlarla birlikte çalıştırma işlevini çağırmanız gerekir. Mantığını anlamanız biraz zaman alıyorsa kendinizi kötü hissetmeyin.
-Gotchas: Kodunuzda görünürlerse bu hatalara dikkat edin ve düzeltin:
-Kullanıcılar, birkaç işlemi bir araya getirebilmeli ve her bir sayı çifti aynı anda değerlendirilerek doğru yanıtı alabilmelidir. Örneğin, 12 + 7 - 5 * 3 =vermelidir 42. Aradığımız davranışa bir örnek, bu öğrenci çözümü olabilir .
-Hesap makineniz aynı anda birden fazla sayıyı değerlendirmemelidir. Örnek: bir sayı düğmesine ( 12), ardından bir operatör düğmesine ( +), ikinci bir sayı düğmesine ( 7) ve son olarak ikinci bir operatör düğmesine ( -) basarsınız. Ardından hesap makineniz şunları yapmalıdır: önce ilk sayı çiftini değerlendirin ( 12 + 7), ikinci olarak bu hesaplamanın sonucunu görüntüleyin ( 19) ve son olarak bu sonucu ( 19) yeni hesaplamanızda sonraki operatör ( -).
-Cevapları ekranı taşmaması için uzun ondalık sayılarla yuvarlamalısınız.
-=Tüm numaraları veya bir operatörü girmeden önce tuşuna basmak sorunlara neden olabilir!
-"Temizle"ye basmak mevcut tüm verileri silmelidir.. kullanıcının "temizle"ye bastıktan sonra gerçekten yeni başladığından emin olun.
-Kullanıcı 0'a bölmeye çalışırsa keskin bir hata mesajı görüntüleyin ve bunun hesap makinenizi çarpmasına izin vermeyin!/** */
+operate();
