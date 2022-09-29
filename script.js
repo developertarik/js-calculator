@@ -16,10 +16,10 @@ let num = document.querySelectorAll(".num");
 let operators = document.querySelectorAll(".operator");
 let equalBtn = document.querySelector(".equal");
 let clearBtn = document.querySelector(".clear");
-let number1 = "";
+let lastNum = "";
 let operation = "";
 let secondOperation = "";
-let number2 = 0;
+let currentNum = "";
 
 /********************/
 /* Event Listerners */
@@ -55,22 +55,22 @@ function divide(a, b) {
 }
 
 //operate
-function operate(operation, number1, number2) {
+function operate(operation, lastNum, currentNum) {
     if (operation === "+") {
-        total = sum(Number(number1), Number(number2));
-        return total;
+        total = sum(Number(lastNum), Number(currentNum));
+        console.log( total);
     }
     if (operation === "*") {
-        total = multiply(Number(number1), Number(number2));
+        total = multiply(Number(lastNum), Number(currentNum));
         console.log(total);
     }
     if (operation === "/") {
-        total = divide(Number(number1), Number(number2));
-        return total;
+        total = divide(Number(lastNum), Number(currentNum));
+        console.log( total);
     }
     if (operation === "-") {
-        total = subtract(Number(number1), Number(number2))
-        return total;
+        total = subtract(Number(lastNum), Number(currentNum))
+        console.log( total);
     }
     else {
         return false;
@@ -85,23 +85,48 @@ const newDisplay = document.querySelector(".newDisplay");
 
 Array.prototype.forEach.call(num, (e) => {
     e.addEventListener("click", function (current) {
-       
-        number1 = analog.textContent += e.textContent;
-        console.log(number1)
+
+        lastNum = analog.textContent += e.textContent;
+        console.log(lastNum)
     })
 })
 Array.prototype.forEach.call(operators, (e) => {
-    e.addEventListener("click", function () {
-      number2 = analog.textContent;
-      Number(number1);
-      Number(number2);
+    e.addEventListener("click", function (operate) {
+     analog.textContent = Number(currentNum)
+     currentNum = Number(lastNum) + Number(analog.textContent)
 
+        console.log(currentNum)
+        if(operation ==="+"){
+            currentNum = Number(lastNum) + Number(analog.textContent)
+            total = currentNum
+            console.log(total)
+            analog.textContent = ""
+
+        analog.textContent = Number(currentNum)
+        }
+        if(operation==="-"){
+            currentNum = Number(lastNum) - Number(analog.textContent)
+            total = currentNum
+           
+                Math.abs(total)
+
+            
+            console.log(total)
+            analog.textContent = total
+
+        }
+        if(operation ==="/"){
+            currentNum = Number(lastNum) / Number(analog.textContent)
+
+        }
+        if(operation==="*"){
+            currentNum = Number(lastNum) * Number(analog.textContent)
+
+        }
    
     //     console.log(number1);
     operation = e.textContent;
-     number2=  analog.textContent ;
-    number2 = Number(number2)
-    analog.textContent = ""
+    
         console.log(operation);
     })
 })
@@ -111,13 +136,13 @@ Array.prototype.forEach.call(operators, (e) => {
     equalBtn.addEventListener("click", () => {
         if (operation === "+") {
             analog.textContent = "";
-            total = Number(number1) + Number(number2);
+            total = Number(currentNum) + Number(lastNum);
 
             analog.textContent = Math.round(total);
         }
         if (operation === "*") {
             analog.textContent = "";
-            total = Number(number1) * Number(number2);
+            total = Number(currentNum) * Number(lastNum);
             console.log(total);
             analog.textContent = Math.round(total);
         }
@@ -134,8 +159,9 @@ Array.prototype.forEach.call(operators, (e) => {
             }
         }
         if (operation === "-") {
-            total = number1 - number2;
-            console.log(total);
+            analog.textContent = "";
+            total = Number(currentNum) - Number(lastNum);
+
             analog.textContent = Math.round(total);
         }
         else {
@@ -145,4 +171,14 @@ Array.prototype.forEach.call(operators, (e) => {
     })
 // The following is getting called but it's not doing anything (returns false here)
 //operate()
-clicked(operate);
+operate();/*
+Hesap makinesinin çalışmasını sağlayın! Bir kullanıcı bir operatöre bastığında hesap makinesine girilen ilk sayıyı kaydetmeniz ve ayrıca hangi işlemin seçildiğini kaydetmeniz ve ardından operate()kullanıcı “=” tuşuna bastığında bu numaralara kaydetmeniz gerekecektir.
+Ekranı doldurabilecek koda zaten sahip olmalısınız, bu nedenle bir kez operate()çağrıldığında, ekranı işleme 'çözüm' ile güncelleyin.
+Bu projenin en zor kısmı. Tüm değerleri nasıl saklayacağınızı bulmanız ve onlarla birlikte çalıştırma işlevini çağırmanız gerekir. Mantığını anlamanız biraz zaman alıyorsa kendinizi kötü hissetmeyin.
+Gotchas: Kodunuzda görünürlerse bu hatalara dikkat edin ve düzeltin:
+Kullanıcılar, birkaç işlemi bir araya getirebilmeli ve her bir sayı çifti aynı anda değerlendirilerek doğru yanıtı alabilmelidir. Örneğin, 12 + 7 - 5 * 3 =vermelidir 42. Aradığımız davranışa bir örnek, bu öğrenci çözümü olabilir .
+Hesap makineniz aynı anda birden fazla sayıyı değerlendirmemelidir. Örnek: bir sayı düğmesine ( 12), ardından bir operatör düğmesine ( +), ikinci bir sayı düğmesine ( 7) ve son olarak ikinci bir operatör düğmesine ( -) basarsınız. Ardından hesap makineniz şunları yapmalıdır: önce ilk sayı çiftini değerlendirin ( 12 + 7), ikinci olarak bu hesaplamanın sonucunu görüntüleyin ( 19) ve son olarak bu sonucu ( 19) yeni hesaplamanızda sonraki operatör ( -).
+Cevapları ekranı taşmaması için uzun ondalık sayılarla yuvarlamalısınız.
+=Tüm numaraları veya bir operatörü girmeden önce tuşuna basmak sorunlara neden olabilir!
+"Temizle"ye basmak mevcut tüm verileri silmelidir.. kullanıcının "temizle"ye bastıktan sonra gerçekten yeni başladığından emin olun.
+Kullanıcı 0'a bölmeye çalışırsa keskin bir hata mesajı görüntüleyin ve bunun hesap makinenizi çarpmasına izin vermeyin!/** */
