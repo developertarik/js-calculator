@@ -21,67 +21,11 @@ let operation = "";
 let secondOperation = "";
 let currentNum = "";
 
+const analog = document.querySelector(".analog");
+const newDisplay = document.querySelector(".newDisplay");
 /********************/
 /* Event Listerners */
 /********************/
-
-// Event listeners will probably only have to be added once,
-// add them here
-
-/*************/
-/* Functions */
-/*************/
-
-// basic function
-function sum(a, b) {
-    return a + b;
-}
-
-function subtract(a, b) {
-    return a - b;
-}
-
-function multiply(a, b) {
-    return a * b;
-}
-
-function divide(a, b) {
-    if ((b) == 0) {
-        return "no";
-    }
-    else {
-        return a / b;
-    }
-}
-
-//operate
-function operate(operation, lastNum, currentNum) {
-    if (operation === "+") {
-        total = sum(Number(lastNum), Number(currentNum));
-        console.log( total);
-    }
-    if (operation === "*") {
-        total = multiply(Number(lastNum), Number(currentNum));
-        console.log(total);
-    }
-    if (operation === "/") {
-        total = divide(Number(lastNum), Number(currentNum));
-        console.log( total);
-    }
-    if (operation === "-") {
-        total = subtract(Number(lastNum), Number(currentNum))
-        console.log( total);
-    }
-    else {
-        return false;
-    }
-}
-// todo olması gerekenler numara butonları num queryselectorall
-// operatorler operators queryselector all
-// clear ve eşittir farklı tuşlar yap
-const analog = document.querySelector(".analog");
-const newDisplay = document.querySelector(".newDisplay");
-// Parameter operate is being passed in here as a callback function but is never used
 
 Array.prototype.forEach.call(num, (e) => {
     e.addEventListener("click", function (current) {
@@ -105,8 +49,61 @@ Array.prototype.forEach.call(operators, (e) => {
         console.log(operation);
     })
 })
+//Events
+clearBtn.addEventListener("click",clearClick)
 
-//equal Click function
+equalBtn.addEventListener("click",equalClick)
+
+// Event listeners will probably only have to be added once,
+// add them here
+
+/*************/
+/* Functions */
+/*************/
+
+function sum(a, b) {
+    return a + b;
+}
+
+function subtract(a, b) {
+    return a - b;
+}
+
+function multiply(a, b) {
+    return a * b;
+}
+
+function divide(a, b) {
+    if ((b) == 0) {
+        return "no";
+    }
+    else {
+        return a / b;
+    }
+}
+
+function operate(operation, lastNum, currentNum) {
+    if (operation === "+") {
+        total = sum(Number(lastNum), Number(currentNum));
+        console.log( total);
+    }
+    if (operation === "*") {
+        total = multiply(Number(lastNum), Number(currentNum));
+        console.log(total);
+    }
+    if (operation === "/") {
+        total = divide(Number(lastNum), Number(currentNum));
+        console.log( total);
+    }
+    if (operation === "-") {
+        total = subtract(Number(lastNum), Number(currentNum))
+        console.log( total);
+    }
+    else {
+        return false;
+    }
+}
+
 function equalClick(){
     if (operation === "+") {
         analog.textContent = "";
@@ -153,10 +150,8 @@ function equalClick(){
 function clearClick(){
     window.location.reload();
 }
-//events
-  clearBtn.addEventListener("click",clearClick)
 
-    equalBtn.addEventListener("click",equalClick)
-// The following is getting called but it's not doing anything (returns false here)
-//operate()
+
+
+
 operate();
