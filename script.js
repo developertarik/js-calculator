@@ -37,32 +37,29 @@ Array.prototype.forEach.call(num, (e) => {
 Array.prototype.forEach.call(operators, (e) => {
     e.addEventListener("click", function (operate) {
         operation = e.textContent;
+        analog.textContent = total
+        if(operation ==="+" && number1 !== "" && number2!==""){
+        analog.textContent = "";
+        total = Number(number1) + Number(number2);
+
+        newDisplay.textContent = Math.round(total);
+        console.log(number1,operation, number2,"=",total)
+        }
         number2 = analog.textContent 
         console.log(Number(number1))
-      analog.textContent = "";
+        console.log(Number(number2))
 
 
         
 
    
     //     console.log(number1);
-    operation = e.textContent;
     
         console.log(operation);
     })
+    
 })
-if(number1 !==""){
-    console.log(number2)
-}
-Number(number1)
-Number(number2)
-if(operation ==="+"&&number1 >0 &&  number2  > 0){
-   analog.textContent = "";
-        total = Number(number1) + Number(number2);
 
-        analog.textContent = Math.round(total);
-        console.log(number1,operation, number2,"=",total)
-}
 
 // Event listeners will probably only have to be added once,
 // add them here
