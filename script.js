@@ -16,10 +16,10 @@ let num = document.querySelectorAll(".num");
 let operators = document.querySelectorAll(".operator");
 let equalBtn = document.querySelector(".equal");
 let clearBtn = document.querySelector(".clear");
-let lastNum = "";
+let number1 = "";
 let operation = "";
 let secondOperation = "";
-let currentNum = "";
+let number2 = "";
 
 const analog = document.querySelector(".analog");
 const newDisplay = document.querySelector(".newDisplay");
@@ -30,17 +30,16 @@ const newDisplay = document.querySelector(".newDisplay");
 Array.prototype.forEach.call(num, (e) => {
     e.addEventListener("click", function (current) {
 
-        lastNum = analog.textContent += e.textContent;
-        console.log(lastNum)
+        console.log(number1)
     })
 })
 Array.prototype.forEach.call(operators, (e) => {
     e.addEventListener("click", function (operate) {
-        analog.textContent = Number(currentNum)
+        number1 = analog.textContent;
+        analog.textContent = Number(number1)
 
-     currentNum = Number(lastNum) + Number(analog.textContent)
 
-        console.log(currentNum)
+        
 
    
     //     console.log(number1);
@@ -49,10 +48,6 @@ Array.prototype.forEach.call(operators, (e) => {
         console.log(operation);
     })
 })
-//Events
-clearBtn.addEventListener("click",clearClick)
-
-equalBtn.addEventListener("click",equalClick)
 
 // Event listeners will probably only have to be added once,
 // add them here
@@ -82,21 +77,21 @@ function divide(a, b) {
     }
 }
 
-function operate(operation, lastNum, currentNum) {
+function operate(operation, number1, number2) {
     if (operation === "+") {
-        total = sum(Number(lastNum), Number(currentNum));
+        total = sum(Number(number1), Number(number2));
         console.log( total);
     }
     if (operation === "*") {
-        total = multiply(Number(lastNum), Number(currentNum));
+        total = multiply(Number(number1), Number(number2));
         console.log(total);
     }
     if (operation === "/") {
-        total = divide(Number(lastNum), Number(currentNum));
+        total = divide(Number(number1), Number(number2));
         console.log( total);
     }
     if (operation === "-") {
-        total = subtract(Number(lastNum), Number(currentNum))
+        total = subtract(Number(number1), Number(number2))
         console.log( total);
     }
     else {
@@ -107,18 +102,18 @@ function operate(operation, lastNum, currentNum) {
 function equalClick(){
     if (operation === "+") {
         analog.textContent = "";
-        total = Number(currentNum) + Number(lastNum);
+        total = Number(number1) + Number(number2);
 
         analog.textContent = Math.round(total);
-        console.log(lastNum,operation, currentNum,"=",total)
+        console.log(number1,operation, number2,"=",total)
 
     }
     if (operation === "*") {
         analog.textContent = "";
-        total = Number(currentNum) * Number(lastNum);
+        total = Number(number1) * Number(number2);
         console.log(total);
         analog.textContent = Math.round(total);
-        console.log(lastNum,operation, currentNum,"=",total)
+        console.log(number1,operation, number2,"=",total)
 
     }
     if (operation === "/") {
@@ -128,19 +123,19 @@ function equalClick(){
             alert("Not divide 0 please try again!");
         }
         else {
-            total = currentNum / lastNum;
+            total = number1 / number2;
             console.log(total);
             analog.textContent = Math.round(total);
-            console.log(lastNum,operation, currentNum,"=",total)
+            console.log(number1,operation, number2,"=",total)
 
         }
     }
     if (operation === "-") {
         analog.textContent = "";
-        total = Number(currentNum) - Number(lastNum);
+        total = Number(number1) - Number(number2);
 
         analog.textContent = Math.round(total);
-        console.log(lastNum,operation, currentNum,"=",total)
+        console.log(number1,operation, number2,"=",total)
 
     }
     else {
@@ -153,5 +148,8 @@ function clearClick(){
 
 
 
+//Events
+  clearBtn.addEventListener("click",clearClick)
 
+    equalBtn.addEventListener("click",equalClick)
 operate();
