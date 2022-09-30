@@ -29,14 +29,16 @@ const newDisplay = document.querySelector(".newDisplay");
 
 Array.prototype.forEach.call(num, (e) => {
     e.addEventListener("click", function (current) {
-
+        number1 = analog.textContent += e.textContent
         console.log(number1)
     })
 })
 Array.prototype.forEach.call(operators, (e) => {
     e.addEventListener("click", function (operate) {
-        number1 = analog.textContent;
-        analog.textContent = Number(number1)
+        number2 = analog.textContent;
+        console.log(Number(number1))
+      console.log(Number(number2))
+      analog.textContent = "";
 
 
         
