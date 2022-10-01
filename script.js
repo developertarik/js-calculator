@@ -31,13 +31,15 @@ Array.prototype.forEach.call(num, (e) => {
     e.addEventListener("click", function (current) {
         number1 = analog.textContent += e.textContent
         console.log(number1)
-        console.log(number2)
     })
 })
 Array.prototype.forEach.call(operators, (e) => {
     e.addEventListener("click", function (operate) {
         operation = e.textContent;
+
         analog.textContent = total
+        number2 = analog.textContent 
+
         if(operation ==="+" && number1 !== "" && number2!==""){
         analog.textContent = "";
         total = Number(number1) + Number(number2);
@@ -46,7 +48,6 @@ Array.prototype.forEach.call(operators, (e) => {
         console.log(number1,operation, number2,"=",total)
         }
         
-        number2 = analog.textContent 
         console.log(Number(number1))
         console.log(Number(number2))
 
@@ -114,10 +115,12 @@ function operate(operation, number1, number2) {
 
 function equalClick(){
     if (operation === "+") {
-        analog.textContent = "";
+        number1 = newDisplay.textContent
+        number2 = analog.textContent;
         total = Number(number1) + Number(number2);
 
         analog.textContent = Math.round(total);
+        newDisplay.textContent = Math.round(total)
         console.log(number1,operation, number2,"=",total)
 
     }
@@ -164,5 +167,5 @@ function clearClick(){
 //Events
   clearBtn.addEventListener("click",clearClick)
 
-    equalBtn.addEventListener("click",()=>analog.textContent=Math.round(total))
+    equalBtn.addEventListener("click",equalClick)
 operate();
