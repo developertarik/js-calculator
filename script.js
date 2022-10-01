@@ -45,6 +45,7 @@ Array.prototype.forEach.call(operators, (e) => {
         newDisplay.textContent = Math.round(total);
         console.log(number1,operation, number2,"=",total)
         }
+        
         number2 = analog.textContent 
         console.log(Number(number1))
         console.log(Number(number2))
@@ -163,5 +164,5 @@ function clearClick(){
 //Events
   clearBtn.addEventListener("click",clearClick)
 
-    equalBtn.addEventListener("click",equalClick)
+    equalBtn.addEventListener("click",()=>analog.textContent=Math.round(total))
 operate();
