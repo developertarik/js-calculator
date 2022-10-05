@@ -1,3 +1,5 @@
+
+
 /*
 TODO
 [x] Add missing semicolons
@@ -36,14 +38,14 @@ Array.prototype.forEach.call(num, (e) => {
 Array.prototype.forEach.call(operators, (e) => {
     e.addEventListener("click", function (operate) {
         operation = e.textContent;
+        newDisplay.textContent = total;
 
-        analog.textContent = total
-        number2 = analog.textContent 
-
+      number2 = analog.textContent = ""
+      analog.textContent  = "";
+    Number(number1)
         if(operation ==="+" && number1 !== "" && number2!==""){
         analog.textContent = "";
-        total = Number(number1) + Number(number2);
-
+        total = newDisplay.textContent +number1;
         newDisplay.textContent = Math.round(total);
         console.log(number1,operation, number2,"=",total)
         }
