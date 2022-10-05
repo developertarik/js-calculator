@@ -43,7 +43,7 @@ Array.prototype.forEach.call(operators, (e) => {
         number2 = analog.textContent 
         analog.textContent = number2
 
-        if(operation ==="+" && number1 !== "" && number2!==""){
+        if(analog.textContent !== ""&&operation ==="+" && number1 !== "" && number2!==""){
         analog.textContent = "";
         total = Number(number1) + Number(number2);
 
@@ -94,22 +94,20 @@ function divide(a, b) {
     }
 }
 console.log(number2)
-function operate(operation, number1, number2) {
+function operate(operation, a, b) {
     if (operation === "+") {
-        total = sum(Number(number1), Number(number2));
-        console.log( total);
+        return sum(Number(a), Number(b));
     }
     if (operation === "*") {
-        total = multiply(Number(number1), Number(number2));
-        console.log(total);
+        return multiply(Number(a), Number(b));
+      
     }
     if (operation === "/") {
-        total = divide(Number(number1), Number(number2));
-        console.log( total);
+        return divide(Number(a), Number(b));
     }
     if (operation === "-") {
-        total = subtract(Number(number1), Number(number2))
-        console.log( total);
+        return  subtract(Number(a), Number(b))
+        
     }
     else {
         return false;
