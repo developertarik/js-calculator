@@ -38,14 +38,15 @@ Array.prototype.forEach.call(num, (e) => {
 Array.prototype.forEach.call(operators, (e) => {
     e.addEventListener("click", function (operate) {
         operation = e.textContent;
-        newDisplay.textContent = total;
 
-      number2 = analog.textContent = ""
-      analog.textContent  = "";
-    Number(number1)
+        analog.textContent = total
+        number2 = analog.textContent 
+        analog.textContent = number2
+
         if(operation ==="+" && number1 !== "" && number2!==""){
         analog.textContent = "";
-        total = newDisplay.textContent +number1;
+        total = Number(number1) + Number(number2);
+
         newDisplay.textContent = Math.round(total);
         console.log(number1,operation, number2,"=",total)
         }
