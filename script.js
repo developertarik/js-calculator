@@ -22,53 +22,29 @@ let operation = "";
 let secondOperation = "";
 let number2 = "";
 
-const currentNum = document.querySelector(".analog");
-const previousNum = document.querySelector(".newDisplay");
+const currentNumsc = document.querySelector(".analog");
+const previousNumsc = document.querySelector(".newDisplay");
 /********************/
 /* Event Listerners */
 /********************/
 
 Array.prototype.forEach.call(num, (e) => {
     e.addEventListener("click", function (current) {
-       handleNum(e.target.textContent);
+       handleNum(e.textContent);
     })
 })
 function handleNum(number){
-    
+    number1+= number;
+    currentNumsc.textContent = number1;
 }
 Array.prototype.forEach.call(operators, (e) => {
     e.addEventListener("click", function (operate) {
         operation = e.textContent;
-        if(operation ==="+"){
-
-        
-        total += Number(number1);}
-        if(operation ==="-"){
-            total -= Number(number1);
-        }
-        newDisplay.textContent = total
-        analog.textContent = ""
-        // number2 = analog.textContent 
-        // analog.textContent = number2
-
-        // if(analog.textContent !== ""&&operation ==="+" && number1 !== "" && number2!==""){
-        // analog.textContent = "";
-        // total = Number(number1) + Number(number2);
-
-        // newDisplay.textContent = Math.round(total);
-        // console.log(number1,operation, number2,"=",total)
-        // }
-        
-        // console.log(Number(number1))
-        // console.log(Number(number2))
-
-
-
-        
-
-   
-    //     console.log(number1);
-    
+       number2 = number1;
+       console.log(number1,number2)
+       previousNumsc.textContent = number2+ "" +operation;
+       number1 = "";
+       currentNumsc.textContent = ""
         console.log(operation);
     })
     
@@ -122,24 +98,15 @@ function operate(operation, a, b) {
         return false;
     }
 }
-
-function equalClick(){
+function calc(){
+    number1 = Number(number1)
+    number2 = Number(number2)
     if (operation === "+") {
-        number1 = newDisplay.textContent
-        number2 = analog.textContent;
-        total = Number(number1) + Number(number2);
-
-        analog.textContent = Math.round(total);
-        newDisplay.textContent = Math.round(total)
-        console.log(number1,operation, number2,"=",total)
+       number2+=number1
 
     }
     if (operation === "*") {
-        analog.textContent = "";
-        total = Number(number1) * Number(number2);
-        console.log(total);
-        analog.textContent = Math.round(total);
-        console.log(number1,operation, number2,"=",total)
+        number2*=number1
 
     }
     if (operation === "/") {
@@ -169,6 +136,9 @@ function equalClick(){
     else {
         return false;
     }
+}
+function equalClick(){
+   
 }
 function clearClick(){
     window.location.reload();
