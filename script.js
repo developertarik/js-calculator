@@ -1,10 +1,9 @@
-
 /*
 TODO
 [x] Add missing semicolons
 [x] Add let or const to variable initializations
 [x] After adding let/const to variable initializations, uncomment "use strict" below
-[ ] Move the event listeners out of the clicked function
+[x] Move the event listeners out of the clicked function
 */
 
 "use strict"
@@ -12,39 +11,60 @@ TODO
 /*************/
 /* Variables */
 /*************/
-let total = 0;
+let total;
 let num = document.querySelectorAll(".num");
 let operators = document.querySelectorAll(".operator");
 let equalBtn = document.querySelector(".equal");
 let clearBtn = document.querySelector(".clear");
 let number1 = "";
 let operation = "";
-let secondOperation = "";
 let number2 = "";
 
-const currentNumsc = document.querySelector(".analog");
-const previousNumsc = document.querySelector(".newDisplay");
+const analog = document.querySelector(".analog");
+const newDisplay = document.querySelector(".newDisplay");
 /********************/
 /* Event Listerners */
 /********************/
 
 Array.prototype.forEach.call(num, (e) => {
     e.addEventListener("click", function (current) {
-       handleNum(e.textContent);
+        number1 = analog.textContent + e.textContent
+        console.log(number1)
+        analog.textContent = number1;
     })
 })
-function handleNum(number){
-    number1+= number;
-    currentNumsc.textContent = number1;
-}
 Array.prototype.forEach.call(operators, (e) => {
     e.addEventListener("click", function (operate) {
         operation = e.textContent;
-       number2 = number1;
-       console.log(number1,number2)
-       previousNumsc.textContent = number2+ "" +operation;
-       number1 = "";
-       currentNumsc.textContent = ""
+        if(operation ==="+"){
+
+        
+      number1 = Number(number1)+Number(number2)
+        console.log(number1)}
+       
+        newDisplay.textContent = number1;
+        analog.textContent = ""
+        // number2 = analog.textContent 
+        // analog.textContent = number2
+
+        // if(analog.textContent !== ""&&operation ==="+" && number1 !== "" && number2!==""){
+        // analog.textContent = "";
+        // total = Number(number1) + Number(number2);
+
+        // newDisplay.textContent = Math.round(total);
+        // console.log(number1,operation, number2,"=",total)
+        // }
+        
+        // console.log(Number(number1))
+        // console.log(Number(number2))
+
+
+
+        
+
+   
+    //     console.log(number1);
+    
         console.log(operation);
     })
     
@@ -98,15 +118,24 @@ function operate(operation, a, b) {
         return false;
     }
 }
-function calc(){
-    number1 = Number(number1)
-    number2 = Number(number2)
+
+function equalClick(){
     if (operation === "+") {
-       number2+=number1
+        number1 = newDisplay.textContent
+        number2 = analog.textContent;
+        total = Number(number1) + Number(number2);
+
+        newDisplay.textContent = Math.round(total)
+        analog.textContent = ""
+        console.log(number1,operation, number2,"=",total)
 
     }
     if (operation === "*") {
-        number2*=number1
+        analog.textContent = "";
+        total = Number(number1) * Number(number2);
+        console.log(total);
+        analog.textContent = Math.round(total);
+        console.log(number1,operation, number2,"=",total)
 
     }
     if (operation === "/") {
@@ -136,9 +165,6 @@ function calc(){
     else {
         return false;
     }
-}
-function equalClick(){
-   
 }
 function clearClick(){
     window.location.reload();
