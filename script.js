@@ -1,5 +1,4 @@
 
-
 /*
 TODO
 [x] Add missing semicolons
@@ -23,18 +22,20 @@ let operation = "";
 let secondOperation = "";
 let number2 = "";
 
-const analog = document.querySelector(".analog");
-const newDisplay = document.querySelector(".newDisplay");
+const currentNum = document.querySelector(".analog");
+const previousNum = document.querySelector(".newDisplay");
 /********************/
 /* Event Listerners */
 /********************/
 
 Array.prototype.forEach.call(num, (e) => {
     e.addEventListener("click", function (current) {
-        number1 = analog.textContent += e.textContent
-        console.log(number1)
+       handleNum(e.target.textContent);
     })
 })
+function handleNum(number){
+    
+}
 Array.prototype.forEach.call(operators, (e) => {
     e.addEventListener("click", function (operate) {
         operation = e.textContent;
