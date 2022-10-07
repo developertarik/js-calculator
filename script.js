@@ -36,13 +36,18 @@ Array.prototype.forEach.call(num, (e) => {
 Array.prototype.forEach.call(operators, (e) => {
     e.addEventListener("click", function (operate) {
         operation = e.textContent;
+        number2 = number1;
+        newDisplay.textContent = number1;
+
+
         if(operation ==="+"){
 
-        
+            newDisplay.textContent = number1;
+
       number1 = Number(number1)+Number(number2)
         console.log(number1)}
+        
        
-        newDisplay.textContent = number1;
         analog.textContent = ""
         // number2 = analog.textContent 
         // analog.textContent = number2
@@ -119,7 +124,7 @@ function operate(operation, a, b) {
     }
 }
 
-function equalClick(){
+function calc(){
     if (operation === "+") {
         number1 = newDisplay.textContent
         number2 = analog.textContent;
@@ -131,10 +136,12 @@ function equalClick(){
 
     }
     if (operation === "*") {
-        analog.textContent = "";
+        number1 = newDisplay.textContent
+        number2 = analog.textContent;
         total = Number(number1) * Number(number2);
-        console.log(total);
-        analog.textContent = Math.round(total);
+
+        newDisplay.textContent = Math.round(total)
+        analog.textContent = ""
         console.log(number1,operation, number2,"=",total)
 
     }
@@ -157,8 +164,8 @@ function equalClick(){
         number2 = analog.textContent;
         total = Number(number1) - Number(number2);
 
-        analog.textContent = Math.round(total);
         newDisplay.textContent = Math.round(total)
+        analog.textContent = ""
         console.log(number1,operation, number2,"=",total)
 
     }
@@ -175,5 +182,5 @@ function clearClick(){
 //Events
   clearBtn.addEventListener("click",clearClick)
 
-    equalBtn.addEventListener("click",equalClick)
+    equalBtn.addEventListener("click",calc)
 operate();
