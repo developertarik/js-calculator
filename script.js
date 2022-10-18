@@ -37,7 +37,13 @@ Array.prototype.forEach.call(operators, (e) => {
         console.log(number1,number2)
         newDisplay.textContent = number1;
         analog.textContent = ""
-        operation = e.textContent
+       if(operation==""){
+        operation = e.textContent;
+       }
+       else{
+        secondOperation = e.textContent;
+        console.log(secondOperation)
+       }
         
        
         calc()
@@ -87,8 +93,7 @@ function operate(operation, number1, number2) {
     }
 }
 function calc(){
-   
-    if(operation =="+"& number2 !=""){
+    if(operation ==="+"& number2 !=""){
         analog.textContent  = "";
         number1 =Number(number1)+Number(number2);
         console.log(total);
@@ -110,6 +115,17 @@ function calc(){
         newDisplay.textContent = total;
         analog.textContent = ""
     }
+    if(operation=="-" & number2 !=""){
+        analog.textContent  = "";
+        number1 =Number(number1)-Number(number2);
+        console.log(total);
+        total = number1;
+        analog.textContent = total;
+        newDisplay.textContent = "";
+        newDisplay.textContent = total;
+        analog.textContent = ""
+    }
+    
 }
 function clearClick(){
     number1 = "";
