@@ -87,10 +87,12 @@ function operate(operation, number1, number2) {
     }
 }
 function calc(){
+   
     if(operation =="+"& number2 !=""){
         analog.textContent  = "";
         number1 =Number(number1)+Number(number2);
         console.log(total);
+
         total = number1;
         analog.textContent = total;
         newDisplay.textContent = "";
