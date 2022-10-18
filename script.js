@@ -1,17 +1,11 @@
-/*
-TODO
-[x] Add missing semicolons
-[x] Add let or const to variable initializations
-[x] After adding let/const to variable initializations, uncomment "use strict" below
-[x] Move the event listeners out of the clicked function
-*/
+
 
 "use strict"
 
 /*************/
 /* Variables */
 /*************/
-let total;
+let total = 0;
 let num = document.querySelectorAll(".num");
 let operators = document.querySelectorAll(".operator");
 let equalBtn = document.querySelector(".equal");
@@ -19,7 +13,8 @@ let clearBtn = document.querySelector(".clear");
 let number1 = "";
 let operation = "";
 let number2 = "";
-
+let secondOperation = "";
+//const
 const analog = document.querySelector(".analog");
 const newDisplay = document.querySelector(".newDisplay");
 /********************/
@@ -28,61 +23,27 @@ const newDisplay = document.querySelector(".newDisplay");
 
 Array.prototype.forEach.call(num, (e) => {
     e.addEventListener("click", function (current) {
-        number1 = analog.textContent + e.textContent
-        console.log(number1)
-        analog.textContent = number1;
+        if(operation ==""){
+        number1 = analog.textContent += e.textContent
+        console.log(number1)}
+        else{
+            number2 = analog.textContent += e.textContent;
+            console.log(number1,number2);
+        }
     })
 })
 Array.prototype.forEach.call(operators, (e) => {
     e.addEventListener("click", function (operate) {
-        operation = e.textContent;
-        number2 = number1;
+        console.log(number1,number2)
         newDisplay.textContent = number1;
-
-
-        if(operation ==="+"){
-
-            newDisplay.textContent = number1;
-
-      number1 = Number(number1)+Number(number2)
-        console.log(number1)}
+        analog.textContent = ""
+        operation = e.textContent
         
        
-        analog.textContent = ""
-        // number2 = analog.textContent 
-        // analog.textContent = number2
-
-        // if(analog.textContent !== ""&&operation ==="+" && number1 !== "" && number2!==""){
-        // analog.textContent = "";
-        // total = Number(number1) + Number(number2);
-
-        // newDisplay.textContent = Math.round(total);
-        // console.log(number1,operation, number2,"=",total)
-        // }
-        
-        // console.log(Number(number1))
-        // console.log(Number(number2))
-
-
-
-        
-
-   
-    //     console.log(number1);
-    
-        console.log(operation);
+        calc()
     })
     
 })
-
-
-// Event listeners will probably only have to be added once,
-// add them here
-
-/*************/
-/* Functions */
-/*************/
-
 function sum(a, b) {
     return a + b;
 }
@@ -104,83 +65,63 @@ function divide(a, b) {
     }
 }
 console.log(number2)
-function operate(operation, a, b) {
+function operate(operation, number1, number2) {
     if (operation === "+") {
-        return sum(Number(a), Number(b));
+        total = sum(Number(number1), Number(number2));
+        console.log( total);
     }
     if (operation === "*") {
-        return multiply(Number(a), Number(b));
-      
+        total = multiply(Number(number1), Number(number2));
+        console.log(total);
     }
     if (operation === "/") {
-        return divide(Number(a), Number(b));
+        total = divide(Number(number1), Number(number2));
+        console.log( total);
     }
     if (operation === "-") {
-        return  subtract(Number(a), Number(b))
-        
+        total = subtract(Number(number1), Number(number2))
+        console.log( total);
     }
     else {
         return false;
     }
 }
-
 function calc(){
-    if (operation === "+") {
-        number1 = newDisplay.textContent
-        number2 = analog.textContent;
-        total = Number(number1) + Number(number2);
-
-        newDisplay.textContent = Math.round(total)
+    if(operation =="+"& number2 !=""){
+        analog.textContent  = "";
+        number1 =Number(number1)+Number(number2);
+        console.log(total);
+        total = number1;
+        analog.textContent = total;
+        newDisplay.textContent = "";
+        newDisplay.textContent = total;
         analog.textContent = ""
-        console.log(number1,operation, number2,"=",total)
-
+        
     }
-    if (operation === "*") {
-        number1 = newDisplay.textContent
-        number2 = analog.textContent;
-        total = Number(number1) * Number(number2);
-
-        newDisplay.textContent = Math.round(total)
+    if(operation=="*" & number2 !=""){
+        analog.textContent  = "";
+        number1 =Number(number1)*Number(number2);
+        console.log(total);
+        total = number1;
+        analog.textContent = total;
+        newDisplay.textContent = "";
+        newDisplay.textContent = total;
         analog.textContent = ""
-        console.log(number1,operation, number2,"=",total)
-
-    }
-    if (operation === "/") {
-        analog.textContent = "";
-
-        if (currentNum == 0) {
-            alert("Not divide 0 please try again!");
-        }
-        else {
-            total = number1 / number2;
-            console.log(total);
-            analog.textContent = Math.round(total);
-            console.log(number1,operation, number2,"=",total)
-
-        }
-    }
-    if (operation === "-") {
-        number1 = newDisplay.textContent
-        number2 = analog.textContent;
-        total = Number(number1) - Number(number2);
-
-        newDisplay.textContent = Math.round(total)
-        analog.textContent = ""
-        console.log(number1,operation, number2,"=",total)
-
-    }
-    else {
-        return false;
     }
 }
 function clearClick(){
-    window.location.reload();
+    number1 = "";
+    number2 = "";
+    total = "";
+    operation = "";
+    analog.textContent ="";
+    newDisplay.textContent = "";
 }
-
-
-
+function equalClick(){
+    analog.textContent = total;
+}
 //Events
   clearBtn.addEventListener("click",clearClick)
 
-    equalBtn.addEventListener("click",calc)
+    equalBtn.addEventListener("click",)
 operate();
