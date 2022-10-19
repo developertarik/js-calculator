@@ -95,35 +95,43 @@ function operate(operation, number1, number2) {
 function calc(){
     if(operation ==="+"& number2 !=""){
         analog.textContent  = "";
-        number1 =Number(number1)+Number(number2);
+        number2 =Number(number1)+Number(number2);
         console.log(total);
 
-        total = number1;
+        total = number2;
         analog.textContent = total;
         newDisplay.textContent = "";
         newDisplay.textContent = total;
         analog.textContent = ""
+        operation ="";
         
     }
-    if(operation=="*" & number2 !=""){
+    if(operation==="*"& number2 !=""){
         analog.textContent  = "";
-        number1 =Number(number1)*Number(number2);
+        number2 =Number(number1)+Number(number2);
         console.log(total);
-        total = number1;
+
+        total = number2;
         analog.textContent = total;
         newDisplay.textContent = "";
         newDisplay.textContent = total;
         analog.textContent = ""
+        operation ="";
+
     }
-    if(operation=="-" & number2 !=""){
+    if(operation==="-"& number2 !="" ){
         analog.textContent  = "";
-        number1 =Number(number1)-Number(number2);
+        number2 =Number(number1)-Number(number2);
+        total = number2;
         console.log(total);
-        total = number1;
+       
         analog.textContent = total;
         newDisplay.textContent = "";
         newDisplay.textContent = total;
         analog.textContent = ""
+        operation ="";
+        
+
     }
     
 }
@@ -141,5 +149,5 @@ function equalClick(){
 //Events
   clearBtn.addEventListener("click",clearClick)
 
-    equalBtn.addEventListener("click",)
+    equalBtn.addEventListener("click",calc)
 operate();
