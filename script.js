@@ -93,7 +93,7 @@ function operate(operation, number1, number2) {
     }
 }
 function calc(){
-    if(operation ==="+"& number2 !=""){
+    if(operation ==="+"&& number2 !=""){
         analog.textContent  = "";
         number2 =Number(number1)+Number(number2);
         console.log(total);
@@ -103,10 +103,11 @@ function calc(){
         newDisplay.textContent = "";
         newDisplay.textContent = total;
         analog.textContent = ""
+        number1 = "";
         operation ="";
         
     }
-    if(operation==="*"& number2 !=""){
+    if(operation==="*"&& number2 !=""){
         analog.textContent  = "";
         number2 =Number(number1)+Number(number2);
         console.log(total);
@@ -119,7 +120,7 @@ function calc(){
         operation ="";
 
     }
-    if(operation==="-"& number2 !="" ){
+    if(operation==="-"&& number2 !="" ){
         analog.textContent  = "";
         number2 =Number(number1)-Number(number2);
         total = number2;
