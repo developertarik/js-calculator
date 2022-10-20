@@ -103,8 +103,8 @@ function calc(){
         newDisplay.textContent = "";
         newDisplay.textContent = total;
         analog.textContent = ""
-        number1 = "";
         operation ="";
+        number1 =  "";
         
     }
     if(operation==="*"&& number2 !=""){
@@ -150,5 +150,8 @@ function equalClick(){
 //Events
   clearBtn.addEventListener("click",clearClick)
 
-    equalBtn.addEventListener("click",calc)
+    equalBtn.addEventListener("click",()=>{
+        analog.textContent = total;
+        newDisplay.textContent = "";
+    })
 operate();
