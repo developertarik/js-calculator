@@ -5,18 +5,19 @@
 /*************/
 /* Variables */
 /*************/
-let total = 0;
-let num = document.querySelectorAll(".num");
-let operators = document.querySelectorAll(".operator");
-let equalBtn = document.querySelector(".equal");
-let clearBtn = document.querySelector(".clear");
+let total = "";
 let number1 = "";
 let operation = "";
 let number2 = "";
-let secondOperation = "";
+/*DOM Selectors*/
+const num = document.querySelectorAll(".num");
+const operators = document.querySelectorAll(".operator");
+const equalBtn = document.querySelector(".equal");
+const clearBtn = document.querySelector(".clear");
+
+
 //const
 const analog = document.querySelector(".analog");
-const newDisplay = document.querySelector(".newDisplay");
 /********************/
 /* Event Listerners */
 /********************/
@@ -27,30 +28,26 @@ Array.prototype.forEach.call(num, (e) => {
         number1 = analog.textContent += e.textContent
         console.log(number1)
     }
+      
         else{
             number2 = analog.textContent += e.textContent;
             console.log(number1,number2);
 
         }
-    
 
 
     })
 })
 Array.prototype.forEach.call(operators, (e) => {
     e.addEventListener("click", function (operate) {
-
+        analog.textContent = "";
         console.log(number1,number2)
-        analog.textContent = ""
-       if(operation===""){
+        if(operation=="")
         operation = e.textContent;
-       }
-       else{
-        secondOperation = e.textContent;
-        console.log(secondOperation)
-       }
-        
        
+     else{
+        secondOperation = e.textContent;
+     }
         calc()
     })
     
@@ -98,18 +95,39 @@ function operate(operation, number1, number2) {
     }
 }
 function calc(){
-    if(operation ==="+"&& number2 !=""){
+    if(operation ==="+" && number2 !=""){
         analog.textContent  = "";
        console.log( number1 = Number(number1) + Number(number2));
-       newDisplay.textContent = number1;
-        
+       total = number1 
+       newDisplay.textContent = total;
+       number2 = "";    
+
     }
+
    
-    if(operation==="*"&& number2 !=""){
+ 
+    if(operation==="*" && number2 !==""){
         analog.textContent  = "";
-        console.log( number1 = Number(number1) + Number(number2));
-        newDisplay.textContent = number1;
-         
+       console.log( number1 = Number(number1) * Number(number2));
+       total = number1 ;
+       newDisplay.textContent = total;
+       number2 = "";
+
+    }
+    if(operation ==="-" && number2 !=""){
+        analog.textContent  = "";
+       console.log( number1 = Number(number1) - Number(number2));
+       total = number1 
+       newDisplay.textContent = total;
+       number2 = "";
+
+    }
+    if(operation ==="/" && number2 !=""){
+        analog.textContent  = "";
+       console.log( number1 = Number(number1) / Number(number2));
+       total = number1 
+       newDisplay.textContent = total;
+       number2 = "";
 
     }
 
