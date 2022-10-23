@@ -25,12 +25,11 @@ const analog = document.querySelector(".analog");
 Array.prototype.forEach.call(num, (e) => {
     e.addEventListener("click", function (current) {
         if(operation ==""){
-        number1 = analog.textContent += e.textContent
+        number1 = analog.textContent += e.textContent;
         console.log(number1)
     }
       
         else{
-            analog.textContent = "";
             number2 = analog.textContent += e.textContent;
             console.log(number1,number2);
 
@@ -43,11 +42,10 @@ Array.prototype.forEach.call(operators, (e) => {
     e.addEventListener("click", function (operate) {
         analog.textContent = "";
         console.log(number1,number2)
-        if(operation=="")
+        if(operation==""){
         operation = e.textContent;
-       
-    
-        calc()
+        }
+        calc();
     })
     
 })
@@ -131,6 +129,14 @@ function calc(){
       analog.textContent = total;
        number2 = "";    
        operation = "";
+
+        
+    }
+    if(operation ==="/" && number2 =="0"){
+        alert("Not divide 0")
+       number2 = "";    
+       operation = "";
+       
         
     }
 
