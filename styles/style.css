@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
-body{
-    background-color: rgb(84, 87, 69);
-}
+
 .calculator{
     display:flex;
     justify-content: center;
@@ -11,7 +9,7 @@ body{
 
 }
 .head-c{
-color:white;
+color:rgb(17, 17, 17);
 font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 font-weight: lighter;}
 .nums{
@@ -25,22 +23,25 @@ font-weight: lighter;}
 .num{
     width:50px;
     height: 35px;
-    background-color:#BCE29E;
+    font-weight:lighter;
+    font-size: large;
+    background-color:grey;
+    color:white;
 }
 .num-column{
     display: flex;
     flex-direction: row;
 }
 .board{
-    background-color:#FF8787;
-    padding: 45px;
+    background-color:#b9b4b4;
     border-radius: 10px;
 
 }
 .analog{
-   background-color: #F8C4B4;
+   background-color: #463e3c;
    font-family: "Silkscreen",cursive;
    padding:20px;
+   color:white;
    
 }
 

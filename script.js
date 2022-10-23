@@ -30,6 +30,7 @@ Array.prototype.forEach.call(num, (e) => {
     }
       
         else{
+            analog.textContent = "";
             number2 = analog.textContent += e.textContent;
             console.log(number1,number2);
 
@@ -45,9 +46,7 @@ Array.prototype.forEach.call(operators, (e) => {
         if(operation=="")
         operation = e.textContent;
        
-     else{
-        secondOperation = e.textContent;
-     }
+    
         calc()
     })
     
@@ -99,36 +98,40 @@ function calc(){
         analog.textContent  = "";
        console.log( number1 = Number(number1) + Number(number2));
        total = number1 
-       newDisplay.textContent = total;
+      analog.textContent = total;
        number2 = "";    
-
+       operation = "";
+        
     }
 
    
  
-    if(operation==="*" && number2 !==""){
+    if(operation ==="*" && number2 !=""){
         analog.textContent  = "";
        console.log( number1 = Number(number1) * Number(number2));
-       total = number1 ;
-       newDisplay.textContent = total;
-       number2 = "";
-
+       total = number1 
+      analog.textContent = total;
+       number2 = "";    
+       operation = "";
+        
     }
     if(operation ==="-" && number2 !=""){
         analog.textContent  = "";
        console.log( number1 = Number(number1) - Number(number2));
        total = number1 
-       newDisplay.textContent = total;
-       number2 = "";
-
+      analog.textContent = total;
+       number2 = "";    
+       operation = "";
+        
     }
     if(operation ==="/" && number2 !=""){
         analog.textContent  = "";
        console.log( number1 = Number(number1) / Number(number2));
        total = number1 
-       newDisplay.textContent = total;
-       number2 = "";
-
+      analog.textContent = total;
+       number2 = "";    
+       operation = "";
+        
     }
 
     // if(operation==="+" && number2 ===""){
