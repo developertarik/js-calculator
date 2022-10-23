@@ -25,17 +25,22 @@ Array.prototype.forEach.call(num, (e) => {
     e.addEventListener("click", function (current) {
         if(operation ==""){
         number1 = analog.textContent += e.textContent
-        console.log(number1)}
+        console.log(number1)
+    }
         else{
             number2 = analog.textContent += e.textContent;
             console.log(number1,number2);
+
         }
+    
+
+
     })
 })
 Array.prototype.forEach.call(operators, (e) => {
     e.addEventListener("click", function (operate) {
+
         console.log(number1,number2)
-        newDisplay.textContent = number1;
         analog.textContent = ""
        if(operation===""){
         operation = e.textContent;
@@ -95,60 +100,32 @@ function operate(operation, number1, number2) {
 function calc(){
     if(operation ==="+"&& number2 !=""){
         analog.textContent  = "";
-        number2 =Number(number1)+Number(number2);
-        console.log(total);
-
-        total = number2;
-        analog.textContent = total;
-        newDisplay.textContent = "";
-        newDisplay.textContent = total;
-        analog.textContent = ""
-        operation ="";
-        number1 =  "";
+       console.log( number1 = Number(number1) + Number(number2));
+       newDisplay.textContent = number1;
         
     }
+   
     if(operation==="*"&& number2 !=""){
         analog.textContent  = "";
-        number2 =Number(number1)*Number(number2);
-        console.log(total);
-
-        total = number2;
-        analog.textContent = total;
-        newDisplay.textContent = "";
-        newDisplay.textContent = total;
-        analog.textContent = ""
-        operation ="";
+        console.log( number1 = Number(number1) + Number(number2));
+        newDisplay.textContent = number1;
+         
 
     }
-    if(operation==="+" && number2 ===""){
-        analog.textContent;
-        total = number1
-        number1 = Number(number1) + Number(number1)
-    }
-    if(operation==="*" && number2 ===""){
-        analog.textContent;
-        total = number1
-        number1 = Number(number1) * Number(number1)
-    }
-    if(operation==="-"&& total !="" ){
-        analog.textContent  = "";
-        number2 =Number(number1)-Number(number2);
-        total = number2;
-        console.log(total);
-       
-        analog.textContent = total;
-        newDisplay.textContent = "";
-        newDisplay.textContent = total;
-        analog.textContent = ""
-        operation ="";
-        
 
-    }
-    if(operation==="-" && number2 ===""){
-        analog.textContent;
-        total = number1
-        number1 = Number(number1) - Number(number1)
-    }
+    // if(operation==="+" && number2 ===""){
+    //     analog.textContent;
+    //     total = number1
+    //     number1 = Number(number1) + Number(number1)
+    //     analog.textContent = number1;
+    // }
+   
+  
+    // if(operation==="-" && number2 ===""){
+    //     analog.textContent;
+    //     total = number1
+    //     number1 = Number(number1) - Number(number1)
+    // }
     
 }
 function clearClick(){
